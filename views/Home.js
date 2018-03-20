@@ -31,6 +31,10 @@ export default class Home extends Component {
 const styles = StyleSheet.create({
     logo: {
         marginTop: 10,
+        width: 200,
+        height: 100,
+        resizeMode: 'contain',
         alignSelf: 'center',
+        borderRadius: 15
     }
 })
