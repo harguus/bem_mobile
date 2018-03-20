@@ -14,7 +14,7 @@ export default class App extends Component {
         <Modal>
           <Scene hideNavBar={true} key='home' component={Home}/>
           <Scene key='login' component={Login}/>
-          <Scene key='formulario' component={Formulario} title="Formulario"/>
+          <Scene key='formulario' component={Formulario} title="Formulário"/>
           <Scene key='teste' component={Teste} title="Teste"/>
           <Scene key='transtornos' component={Transtornos} title="Transtornos"/>
         </Modal>
