@@ -10,10 +10,6 @@ import{
 import { Actions } from 'react-native-router-flux';
 
 export default class Principal extends Component {
-  constructor(props){
-    super(props);
-
-  }
 
   render(){
     return(
