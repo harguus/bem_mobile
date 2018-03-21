@@ -7,22 +7,21 @@ import {
 } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 
-export default class Card extends Component{
+export default class Transtorno extends Component{
 
-    constructor(props){
-        super(props);
-
-        this.sta
-    }
     render(){
         return(
             <View style={styles.cardBody}>
                 <Text style={styles.h1}>
-                    {this.props.titulo}:
+                    Transtornos:
                 </Text>
                 <Text style={styles.texts}>
-                    {this.props.texto}
+                    A nível organizacional, o julgamento imparcial das eventualidades prepara-nos para enfrentar situações atípicas decorrentes do sistema de participação geral.
                 </Text>
+                <Button
+                    title={'Ver todos'}
+                    onPress={() => {Actions.transtornos()}}
+                />
             </View>
         );
     }
@@ -33,6 +32,7 @@ const styles = StyleSheet.create({
         marginTop: 10,
         marginLeft: 10,
         marginRight: 10,
+        marginBottom: 10,
         backgroundColor: '#fff',
         borderRadius: 5
     },

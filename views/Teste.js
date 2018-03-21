@@ -12,7 +12,7 @@ export default class Teste extends Component{
         return(
             <View style={styles.cardBody}>
                 <Text style={styles.h1}>
-                    Passo a Passo:
+                    Como funciona?
                 </Text>
                 <Text style={styles.texts}>
                     A nível organizacional, o julgamento imparcial das eventualidades prepara-nos para enfrentar situações atípicas decorrentes do sistema de participação geral.
