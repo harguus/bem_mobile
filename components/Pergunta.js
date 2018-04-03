@@ -25,8 +25,10 @@ export default class Pergunta extends Component{
             <Picker
               selectedValue={this.state.pickerSelection}
               onValueChange={(itemValue, itemIndex) => this.setState({pickerSelection: itemValue})}>
-              <Picker.Item label="Chicken" value="chicken" />
-              <Picker.Item label="Eggs" value="eggs" />
+              <Picker.Item label="Não" value="0" />
+              <Picker.Item label="Foi Complicado" value="1" />
+              <Picker.Item label="Mais ou Menos" value="2" />
+              <Picker.Item label="Foi Muito Dificil" value="3" />
             </Picker>
           </View>
         </View>
