@@ -12,7 +12,6 @@ export default class App extends Component {
         return (
             <Router>
                 <Modal>
-
                     <Scene hideNavBar={true} key='home' component={Home}/>
                     <Scene key='login' component={Login}/>
                     <Scene key='teste' component={Teste} title="Passoo-a-passo"/>

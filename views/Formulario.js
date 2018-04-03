@@ -1,16 +1,14 @@
 import React, {Component} from 'react';
 import {
     Text,
-    Image,
-    Button,
     View,
     StyleSheet,
     ScrollView,
-    TextInput,
-    Picker
+    ActivityIndicator,
+    Picker,
+    Alert,
+    Button,
 } from 'react-native';
-import {Actions} from 'react-native-router-flux';
-import Pergunta from '../components/Pergunta';
 import axios from 'axios';
 
 export default class Principal extends Component {
@@ -19,6 +17,7 @@ export default class Principal extends Component {
         super(props);
 
         this.state = {
+            loaded: false,
             listPerguntas: [],
             selection0: '0',
             selection1: '0',
@@ -66,17 +65,22 @@ export default class Principal extends Component {
 
             valor: '0',
         };
+
     }
 
     componentWillMount() {
         // requisição HTTP
-
         axios.get('http://bemapi.herokuapp.com/pergunta')
             .then((response) => {
                 this.setState({listPerguntas: response.data});
+                this.setState({loaded: true});
             })
             .catch((error) => {
                 console.log(error);
+                Alert.alert(
+                    'Problema com a conexão: '+ error.response.status
+                );
+                this.setState({loaded: true});
             });
     }
 
@@ -98,24 +102,27 @@ export default class Principal extends Component {
         return (
             <ScrollView style={styles.geral}>
 
-                {this.state.listPerguntas.map(
+                {this.state.loaded ? this.state.listPerguntas.map(
                     (item, key) => (
                         <View key={key} style={styles.corpo}>
                             <View style={styles.question}>
-                            <Text style={styles.labels}>{key+1} - {item.descricao}:</Text>
-                            <Picker
-                                style={styles.select}
-                                // selectedValue={this.vaiDoido("selection", key, this.state.values)}
-                                selectedValue={this.state.values}
-                                onValueChange={(itemValue) => this.setState(this.chagerSelectionKey("selection", key, itemValue))}>
-                                <Picker.Item label="Não" value="0" />
-                                <Picker.Item label="Foi Complicado" value="1" />
-                                <Picker.Item label="Mais ou Menos" value="2" />
-                                <Picker.Item label="Foi Muito Dificil" value="3" />
-                            </Picker>
+                                <Text style={styles.labels}>{key+1} - {item.descricao}:</Text>
+                                <Picker
+                                    style={styles.select}
+                                    // selectedValue={this.vaiDoido("selection", key, this.state.values)}
+                                    selectedValue={this.state.values}
+                                    onValueChange={(itemValue) => this.setState(this.chagerSelectionKey("selection", key, itemValue))}>
+                                    <Picker.Item label="Não" value="0" />
+                                    <Picker.Item label="Foi Complicado" value="1" />
+                                    <Picker.Item label="Mais ou Menos" value="2" />
+                                    <Picker.Item label="Foi Muito Dificil" value="3" />
+                                </Picker>
                             </View>
-                         </View>
-                    ))}
+                        </View>
+
+                    )) :
+                   <ActivityIndicator size="large" color="#0000ff" />
+                }
             </ScrollView>
         );
     }
