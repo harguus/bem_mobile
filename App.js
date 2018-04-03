@@ -12,9 +12,9 @@ export default class App extends Component {
     return (
       <Router>
         <Modal>
+          <Scene key='formulario' component={Formulario} title="Formulário"/>
           <Scene hideNavBar={true} key='home' component={Home}/>
           <Scene key='login' component={Login}/>
-          <Scene key='formulario' component={Formulario} title="Formulário"/>
           <Scene key='teste' component={Teste} title="Passoo-a-passo"/>
           <Scene key='transtornos' component={Transtornos} title="Transtornos"/>
         </Modal>
