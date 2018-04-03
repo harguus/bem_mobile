@@ -16,7 +16,7 @@ export default class App extends Component {
                     <Scene key='login' component={Login}/>
                     <Scene key='teste' component={Teste} title="Passoo-a-passo"/>
                     <Scene key='transtornos' component={Transtornos} title="Transtornos"/>
-                    <Scene key='formulario' component={Formulario} title="Formulário"/>
+                    <Scene key='formulario' component={Formulario} title="Teste DASS21"/>
                 </Modal>
             </Router>
         );

@@ -101,8 +101,8 @@ export default class Principal extends Component {
     render() {
         return (
             <ScrollView style={styles.geral}>
-
-                {this.state.loaded ? this.state.listPerguntas.map(
+                {this.state.loaded ?
+                    this.state.listPerguntas.map(
                     (item, key) => (
                         <View key={key} style={styles.corpo}>
                             <View style={styles.question}>
@@ -119,7 +119,6 @@ export default class Principal extends Component {
                                 </Picker>
                             </View>
                         </View>
-
                     )) :
                    <ActivityIndicator size="large" color="#0000ff" />
                 }
