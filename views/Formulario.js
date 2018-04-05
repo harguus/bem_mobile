@@ -70,7 +70,7 @@ export default class Principal extends Component {
 
     componentWillMount() {
         // requisição HTTP
-        axios.get('http://bemapi.herokuapp.com/pergunta')
+        axios.get('https://bemapi.herokuapp.com/pergunta')
             .then((response) => {
                 this.setState({listPerguntas: response.data});
                 this.setState({loaded: true});
