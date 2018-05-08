@@ -103,28 +103,37 @@ export default class Principal extends Component {
         return (
             <ScrollView style={styles.geral}>
                 {this.state.loaded ?
-                    this.state.listPerguntas.map(
-                    (item, key) => (
-                        <View key={key} style={styles.corpo}>
-                            <View style={styles.question}>
-                                <Text style={styles.labels}>{key+1} - {item.descricao}:</Text>
-                                <Picker
-                                    style={styles.select}
-                                    // selectedValue={this.vaiDoido("selection", key, this.state.values)}
-                                    selectedValue={this.state.values}
-                                    onValueChange={(itemValue) => this.setState(this.chagerSelectionKey("selection", key, itemValue))}>
-                                    <Picker.Item label="Não" value="0" />
-                                    <Picker.Item label="Foi Complicado" value="1" />
-                                    <Picker.Item label="Mais ou Menos" value="2" />
-                                    <Picker.Item label="Foi Muito Dificil" value="3" />
-                                </Picker>
+                    <View>
+                      {
+                        this.state.listPerguntas.map(
+                        (item, key) => (
+                            <View key={key} style={styles.corpo}>
+                                <View style={styles.question}>
+                                    <Text style={styles.labels}>{key+1} - {item.descricao}:</Text>
+                                    <Picker
+                                        style={styles.select}
+                                        // selectedValue={this.vaiDoido("selection", key, this.state.values)}
+                                        selectedValue={this.state.values}
+                                        onValueChange={(itemValue) => this.setState(this.chagerSelectionKey("selection", key, itemValue))}>
+                                        <Picker.Item label="Não" value="0" />
+                                        <Picker.Item label="Foi Complicado" value="1" />
+                                        <Picker.Item label="Mais ou Menos" value="2" />
+                                        <Picker.Item label="Foi Muito Dificil" value="3" />
+                                    </Picker>
+                                </View>
                             </View>
-                        </View>
-                    )) : (
+                        ))
+                      }
+
+                      <Button
+                          title={'eNVIAR'}
+                          onPress={() => {Actions.resultadoFinal()}}
+                      />
+                    </View>
+                     : (
                       <ActivityIndicator size="large" color="#0000ff" />
                     )
                  }
-                 <Text>carai</Text>
             </ScrollView>
         );
     }

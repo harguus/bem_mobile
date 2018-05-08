@@ -14,10 +14,10 @@ export default class Teste extends Component{
           <ScrollView style={styles.vai}>
             <View style={styles.cardBody}>
                 <Text style={styles.h1}>
-                    DASS21
+                    Escala de depressão geriátrica (GDS)
                 </Text>
                 <Text style={styles.texts}>
-                    A nível organizacional, o julgamento imparcial das eventualidades prepara-nos para enfrentar situações atípicas decorrentes do sistema de participação geral.
+                    Descrição do teste: Trata-se de um questionário de 15 perguntas com respostas objetivas (SIM ou NÃO) a respeito de como a pessoa tem se sentido na última semana, comumente aplicada entre idosos.
                 </Text>
                 <View style={styles.viewVerMais}>
                     <Button
@@ -28,10 +28,10 @@ export default class Teste extends Component{
             </View>
             <View style={styles.cardBody}>
                 <Text style={styles.h1}>
-                    DASS21
+                    DASS-21
                 </Text>
                 <Text style={styles.texts}>
-                    A nível organizacional, o julgamento imparcial das eventualidades prepara-nos para enfrentar situações atípicas decorrentes do sistema de participação geral.
+                    O questionário DASS-21 é uma avaliação clínica que mede os os níveis de depressão, ansiedade e stress. Ele tem 21 perguntas e leva cerca de 3 minutos para ser concluído. A função principal do teste DASS-21 é avaliar a severidade dos sintomas centrais da depressão, ansiedade e stress.
                 </Text>
                 <View style={styles.viewVerMais}>
                     <Button
