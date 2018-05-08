@@ -124,15 +124,12 @@ export default class Principal extends Component {
                             </View>
                         ))
                       }
-
                       <Button
                           title={'eNVIAR'}
                           onPress={() => {Actions.resultadoFinal()}}
                       />
                     </View>
-                     : (
-                      <ActivityIndicator size="large" color="#0000ff" />
-                    )
+                     : <ActivityIndicator size="large" color="#0000ff" />
                  }
             </ScrollView>
         );

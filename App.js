@@ -14,13 +14,13 @@ export default class App extends Component {
         return (
             <Router>
                 <Modal>
-                <Scene key='formulario' component={Formulario} title="Teste DASS21"/>
                     <Scene hideNavBar={true} key='home' component={Home}/>
                     <Scene key='login' component={Login}/>
                     <Scene key='passoAPasso' component={PassoAPasso} title="Passoo-a-passo"/>
                     <Scene key='transtornos' component={Transtornos} title="Transtornos"/>
                     <Scene key='listaQuestionarios' component={ListaQuestionarios} title="Questionário"/>
-                    <Scene key='resultadoFinal' component={ResultadoFinal} title="Resultado"/>
+                    <Scene key='formulario' component={Formulario} title="Formulário"/>
+                    <Scene hideNavBar={true} key='resultadoFinal' component={ResultadoFinal} title="Resultado"/>
                 </Modal>
             </Router>
         );

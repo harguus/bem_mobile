@@ -3,27 +3,35 @@ import {
     Text,
     View,
     Button,
-    StyleSheet
+    StyleSheet,
+    Image
 } from 'react-native';
 import { Actions } from 'react-native-router-flux';
+import Logo from '../src/imgs/qrcode.png';
 
 export default class Teste extends Component{
     render(){
         return(
             <View style={styles.cardBody}>
                 <Text style={styles.h1}>
-                    Como funciona?
+                    Resultado
                 </Text>
-                <Text style={styles.texts}>
-                    A nível organizacional, o julgamento imparcial das eventualidades prepara-nos para enfrentar situações atípicas decorrentes do sistema de participação geral.
+                <Text style={styles.resultNumber}>
+                  24513
                 </Text>
-                <Text style={styles.texts}>
-                    Desta maneira, a crescente influência da mídia possibilita uma melhor visão global das direções preferenciais no sentido do progresso.
-                </Text>
+                <Image
+                    style={styles.logo}
+                    source={Logo}
+                />
                 <View style={styles.viewVerMais}>
                     <Button
-                        title={'Começar'}
+                        style={styles.botao}
+                        title={'Repetir teste'}
                         onPress={() => {Actions.formulario()}}
+                    />
+                    <Button
+                        title={'Questionarios'}
+                        onPress={() => {Actions.listaQuestionarios()}}
                     />
                 </View>
             </View>
@@ -40,6 +48,11 @@ const styles = StyleSheet.create({
         borderRadius: 5,
     },
 
+    botao: {
+        width: 500,
+        backgroundColor: 'green',
+    },
+
     h1: {
         fontSize: 20,
         fontWeight: 'bold',
@@ -47,17 +60,32 @@ const styles = StyleSheet.create({
         marginLeft: 10,
         marginRight: 10,
         color: '#000',
+        textAlign: 'center'
     },
 
-    texts: {
+    resultNumber: {
         color: '#000',
+        fontSize: 50,
+        textAlign: 'center',
         margin: 10,
     },
 
     viewVerMais: {
-        alignItems: 'flex-end',
-        height: 50,
+        height: 35,
         marginLeft: 10,
         marginRight: 10,
+        marginBottom: 20,
+        justifyContent: 'center',
+        justifyContent: 'space-between',
+        flexDirection: 'row',
+    },
+
+    logo: {
+        marginTop: 5,
+        width: 300,
+        height: 200,
+        resizeMode: 'contain',
+        alignSelf: 'center',
+        borderRadius: 15
     }
 })
