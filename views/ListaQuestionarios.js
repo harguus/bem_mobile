@@ -3,30 +3,44 @@ import {
     Text,
     View,
     Button,
+    ScrollView,
     StyleSheet
 } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 
-export default class SobreTeste extends Component{
+export default class Teste extends Component{
     render(){
         return(
+          <ScrollView style={styles.vai}>
             <View style={styles.cardBody}>
                 <Text style={styles.h1}>
-                    Sobre o teste:
+                    DASS21
                 </Text>
                 <Text style={styles.texts}>
                     A nível organizacional, o julgamento imparcial das eventualidades prepara-nos para enfrentar situações atípicas decorrentes do sistema de participação geral.
                 </Text>
-                <Text style={styles.texts}>
-                    Desta maneira, a crescente influência da mídia possibilita uma melhor visão global das direções preferenciais no sentido do progresso.
-                </Text>
                 <View style={styles.viewVerMais}>
                     <Button
-                        title={'Iniciar Teste'}
-                        onPress={() => {Actions.passoAPasso()}}
+                        title={'Começar'}
+                        onPress={() => {Actions.formulario()}}
                     />
                 </View>
             </View>
+            <View style={styles.cardBody}>
+                <Text style={styles.h1}>
+                    DASS21
+                </Text>
+                <Text style={styles.texts}>
+                    A nível organizacional, o julgamento imparcial das eventualidades prepara-nos para enfrentar situações atípicas decorrentes do sistema de participação geral.
+                </Text>
+                <View style={styles.viewVerMais}>
+                    <Button
+                        title={'Começar'}
+                        onPress={() => {Actions.formulario()}}
+                    />
+                </View>
+            </View>
+          </ScrollView>
         );
     }
 }

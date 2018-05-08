@@ -7,12 +7,12 @@ import {
 } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 
-export default class SobreTeste extends Component{
+export default class Teste extends Component{
     render(){
         return(
             <View style={styles.cardBody}>
                 <Text style={styles.h1}>
-                    Sobre o teste:
+                    Como funciona?
                 </Text>
                 <Text style={styles.texts}>
                     A nível organizacional, o julgamento imparcial das eventualidades prepara-nos para enfrentar situações atípicas decorrentes do sistema de participação geral.
@@ -22,8 +22,8 @@ export default class SobreTeste extends Component{
                 </Text>
                 <View style={styles.viewVerMais}>
                     <Button
-                        title={'Iniciar Teste'}
-                        onPress={() => {Actions.passoAPasso()}}
+                        title={'Escolhe o teste'}
+                        onPress={() => {Actions.listaQuestionarios()}}
                     />
                 </View>
             </View>

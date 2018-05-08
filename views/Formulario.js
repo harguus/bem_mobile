@@ -10,6 +10,7 @@ import {
     Button,
 } from 'react-native';
 import axios from 'axios';
+import { Actions } from 'react-native-router-flux';
 
 export default class Principal extends Component {
 
@@ -119,9 +120,11 @@ export default class Principal extends Component {
                                 </Picker>
                             </View>
                         </View>
-                    )) :
-                   <ActivityIndicator size="large" color="#0000ff" />
-                }
+                    )) : (
+                      <ActivityIndicator size="large" color="#0000ff" />
+                    )
+                 }
+                 <Text>carai</Text>
             </ScrollView>
         );
     }
@@ -148,4 +151,3 @@ const styles = StyleSheet.create({
     }
 
 })
-
