@@ -103,7 +103,7 @@ export default class Principal extends Component {
         return (
             <ScrollView style={styles.geral}>
                 {this.state.loaded ?
-                    <View>
+                    <View style={styles.vwinterna}>
                       {
                         this.state.listPerguntas.map(
                         (item, key) => (
@@ -144,6 +144,10 @@ const styles = StyleSheet.create({
         backgroundColor: '#fff',
         margin: 10,
         borderRadius: 5,
+    },
+
+    vwinterna: {
+      marginBottom: 10
     },
     question:{
 

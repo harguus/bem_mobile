@@ -30,7 +30,7 @@ export default class Teste extends Component{
                         onPress={() => {Actions.formulario()}}
                     />
                     <Button
-                        title={'Questionarios'}
+                        title={'Questionários'}
                         onPress={() => {Actions.listaQuestionarios()}}
                     />
                 </View>
@@ -81,7 +81,6 @@ const styles = StyleSheet.create({
     },
 
     logo: {
-        marginTop: 5,
         width: 300,
         height: 200,
         resizeMode: 'contain',
