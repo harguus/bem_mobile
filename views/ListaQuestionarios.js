@@ -4,42 +4,67 @@ import {
     View,
     Button,
     ScrollView,
+    ActivityIndicator,
     StyleSheet
 } from 'react-native';
+import axios from 'axios';
 import { Actions } from 'react-native-router-flux';
 
 export default class Teste extends Component{
+
+  constructor(props){
+    super(props);
+
+    this.state = {
+      loaded: false,
+      listQuestionarios: [],
+    }
+  }
+
+  componentWillMount() {
+      // requisição HTTP
+      axios.get('https://bemapi.herokuapp.com/questionario')
+          .then((response) => {
+              this.setState({listQuestionarios: response.data});
+              this.setState({loaded: true});
+          })
+          .catch((error) => {
+              console.log(error);
+              Alert.alert(
+                  'Problema com a conexão: '+ error.response.status
+              );
+              this.setState({loaded: true});
+          });
+  }
+
     render(){
         return(
           <ScrollView style={styles.vai}>
-            <View style={styles.cardBody}>
-                <Text style={styles.h1}>
-                    Escala de depressão geriátrica (GDS)
-                </Text>
-                <Text style={styles.texts}>
-                    Descrição do teste: Trata-se de um questionário de 15 perguntas com respostas objetivas (SIM ou NÃO) a respeito de como a pessoa tem se sentido na última semana, comumente aplicada entre idosos.
-                </Text>
-                <View style={styles.viewVerMais}>
-                    <Button
-                        title={'Começar'}
-                        onPress={() => {Actions.formulario()}}
-                    />
-                </View>
-            </View>
-            <View style={styles.cardBody}>
-                <Text style={styles.h1}>
-                    DASS-21
-                </Text>
-                <Text style={styles.texts}>
-                    O questionário DASS-21 é uma avaliação clínica que mede os os níveis de depressão, ansiedade e stress. Ele tem 21 perguntas e leva cerca de 3 minutos para ser concluído. A função principal do teste DASS-21 é avaliar a severidade dos sintomas centrais da depressão, ansiedade e stress.
-                </Text>
-                <View style={styles.viewVerMais}>
-                    <Button
-                        title={'Começar'}
-                        onPress={() => {Actions.formulario()}}
-                    />
-                </View>
-            </View>
+          {this.state.loaded ?
+              <View style={styles.vwinterna}>
+                {
+                  this.state.listQuestionarios.map(
+                  (item, key) => (
+                      <View key={key} style={styles.cardBody}>
+                          <Text style={styles.h1}>
+                              {key+1} - {item.titulo}:
+                          </Text>
+                          <Text style={styles.texts}>
+                              {item.descricao}
+                          </Text>
+                          <View style={styles.viewVerMais}>
+                              <Button
+                                  title={'Começar'}
+                                  onPress={() => {Actions.questionario({id: item.id})}}
+                              />
+                          </View>
+                      </View>
+                  ))
+                }
+              </View>
+               : <ActivityIndicator size="large" color="#0000ff" />
+           }
+
           </ScrollView>
         );
     }
