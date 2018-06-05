@@ -64,10 +64,11 @@ export default class Questionario extends Component {
                           <View>
                               <Text style={styles.labels}>{key+1} - {item.descricao}:</Text>
                               <RadioForm
+                                style={styles.radios}
                                 radio_props={this.state.radio_props}
                                 initial={0}
                                 formHorizontal={true}
-                                labelHorizontal={true}
+                                labelHorizontal={false}
                                 buttonColor={'#2196f3'}
                                 labelColor={'#000'}
                                 animation={true}
@@ -107,6 +108,11 @@ const styles = StyleSheet.create({
       fontSize: 23,
       color: '#000',
       fontWeight: 'bold'
+    },
+    radios:{
+      marginTop: 10,
+      marginRight: 10,
+      justifyContent: 'space-between'
     },
     descricao:{
       borderTopWidth: 1,
