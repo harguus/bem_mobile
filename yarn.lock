@@ -4337,6 +4337,10 @@ react-native-router-flux@^4.0.0-beta.28:
     prop-types "^15.6.0"
     react-navigation "1.0.0-beta.22"
 
+react-native-simple-radio-button@^2.7.1:
+  version "2.7.1"
+  resolved "https://registry.yarnpkg.com/react-native-simple-radio-button/-/react-native-simple-radio-button-2.7.1.tgz#4a4a5cae903b6bc680c5e4bd5931948aa7608da0"
+
 react-native-tab-view@^0.0.70:
   version "0.0.70"
   resolved "https://registry.yarnpkg.com/react-native-tab-view/-/react-native-tab-view-0.0.70.tgz#1dd2ded32acd0cb6bfef38d26e53675db733b37b"
