@@ -27,7 +27,7 @@ export default class Teste extends Component{
                     <Button
                         style={styles.botao}
                         title={'Repetir teste'}
-                        onPress={() => {Actions.formulario()}}
+                        onPress={() => {Actions.questionario({id: this.props.idQuest})}}
                     />
                     <Button
                         title={'Questionários'}
