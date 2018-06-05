@@ -18,6 +18,13 @@ export default class Questionario extends Component {
     this.state = {
       loaded: false,
       listPerguntas: [],
+      resposta: 0,
+      radio_props: [
+        {label: '0', value: 0 },
+        {label: '1', value: 1 },
+        {label: '2', value: 2 },
+        {label: '3', value: 3 },
+      ],
     }
   }
 
@@ -56,14 +63,23 @@ export default class Questionario extends Component {
                       <View key={key} style={styles.corpo}>
                           <View>
                               <Text style={styles.labels}>{key+1} - {item.descricao}:</Text>
-
+                              <RadioForm
+                                radio_props={this.state.radio_props}
+                                initial={0}
+                                formHorizontal={true}
+                                labelHorizontal={true}
+                                buttonColor={'#2196f3'}
+                                labelColor={'#000'}
+                                animation={true}
+                                onPress={(valor) => {this.setState({resposta: valor})}}
+                              />
                           </View>
                       </View>
                   ))
                 }
                 <Button
                     title={'eNVIAR'}
-                    onPress={() => {Actions.resultadoFinal()}}
+                    onPress={() => {Actions.resultadoFinal({idQuest: this.props.id})}}
                 />
               </View>
                : <ActivityIndicator size="large" color="#0000ff" />

@@ -15,12 +15,12 @@ export default class App extends Component {
         return (
             <Router>
                 <Modal>
-                <Scene key='listaQuestionarios' component={ListaQuestionarios} title="Questionários"/>
                     <Scene hideNavBar={true} key='home' component={Home}/>
                     <Scene key='login' component={Login}/>
                     <Scene key='passoAPasso' component={PassoAPasso} title="Passoo-a-passo"/>
                     <Scene key='transtornos' component={Transtornos} title="Transtornos"/>
                     <Scene key='formulario' component={Formulario} title="Formulário"/>
+                    <Scene key='listaQuestionarios' component={ListaQuestionarios} title="Questionários"/>
                     <Scene key='questionario' component={Questionario} title="Questionario"/>
                     <Scene hideNavBar={true} key='resultadoFinal' component={ResultadoFinal} title="Resultado"/>
                 </Modal>
