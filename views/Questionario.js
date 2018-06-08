@@ -13,6 +13,7 @@ import { Actions } from 'react-native-router-flux';
 import RadioForm, {RadioButton, RadioButtonInput, RadioButtonLabel} from 'react-native-simple-radio-button';
 
 var respostas = [];
+var respostas2 = {};
 
 export default class Questionario extends Component {
   constructor(props){
@@ -31,9 +32,13 @@ export default class Questionario extends Component {
     }
   }
 
-  addResposta(i, v){
-    respostas[i] = v;
-    Alert.alert("Pergunta: " + i + " resposta: " + v );
+  addResposta(id, v){
+    respostas2[id] = v;
+
+    console.log("Respostas:");
+    for (let prop in respostas2){
+      console.log("Questão: " + prop + " Resposta: " + respostas2[prop]);
+    }
   }
 
   componentWillMount() {
@@ -42,6 +47,10 @@ export default class Questionario extends Component {
           .then((response) => {
               this.setState({listPerguntas: response.data});
               this.setState({loaded: true});
+              this.state.listPerguntas.perguntas.map((item, key) => (
+                respostas2[`${item.id}`] = 0
+              ));
+              console.log("Res: " + JSON.stringify(respostas2));
           })
           .catch((error) => {
               console.log(error);
@@ -79,14 +88,14 @@ export default class Questionario extends Component {
                                 buttonColor={'#2196f3'}
                                 labelColor={'#000'}
                                 animation={true}
-                                onPress={(valor) => this.addResposta(key,valor)}
+                                onPress={(valor) => this.addResposta(item.id,valor)}
                               />
                           </View>
                       </View>
                   ))
                 }
                 <Button
-                    title={'eNVIAR'}
+                    title={'Enviar'}
                     onPress={() => {Actions.resultadoFinal({idQuest: this.props.id})}}
                 />
               </View>
