@@ -12,8 +12,7 @@ import axios from 'axios';
 import { Actions } from 'react-native-router-flux';
 import RadioForm, {RadioButton, RadioButtonInput, RadioButtonLabel} from 'react-native-simple-radio-button';
 
-var respostas = [];
-var respostas2 = {};
+var respostas = {};
 
 export default class Questionario extends Component {
   constructor(props){
@@ -33,11 +32,12 @@ export default class Questionario extends Component {
   }
 
   addResposta(id, v){
-    respostas2[id] = v;
-
+    respostas[id] = v;
+    let i = 0;
     console.log("Respostas:");
-    for (let prop in respostas2){
-      console.log("Questão: " + prop + " Resposta: " + respostas2[prop]);
+    for (let prop in respostas){
+      i += 1;
+      console.log("Questão sequencia: " + i + " Questão id: " + prop + " Resposta: " + respostas[prop]);
     }
   }
 
@@ -48,9 +48,9 @@ export default class Questionario extends Component {
               this.setState({listPerguntas: response.data});
               this.setState({loaded: true});
               this.state.listPerguntas.perguntas.map((item, key) => (
-                respostas2[`${item.id}`] = 0
+                respostas[`${item.id}`] = 0
               ));
-              console.log("Res: " + JSON.stringify(respostas2));
+              console.log("Res: " + JSON.stringify(respostas));
           })
           .catch((error) => {
               console.log(error);
@@ -59,6 +59,37 @@ export default class Questionario extends Component {
               );
               this.setState({loaded: true});
           });
+  }
+
+  registrarResultado(idQuestionario){
+
+    let res = [];
+
+    Object.keys(respostas).map(( key, i) => {
+      res.push({'pergunta_id' : key, 'alternativa_id' : respostas[key]});
+    });
+
+    console.log(res);
+
+    // axios.post('', res)
+
+    axios({
+      method: 'post',
+      url: 'https://bemapi.herokuapp.com/resultado',
+      data: {
+        respostas: res,
+        questionario_id: idQuestionario,
+      }
+    })
+    .then((response) => {
+      console.log("Res: " + JSON.stringify(response.data));
+    })
+    .catch((error) => {
+        console.log(error);
+        Alert.alert(
+            'Problema com a conexão: '+ error.response.status
+        );
+    });
   }
 
   render(){
@@ -96,7 +127,8 @@ export default class Questionario extends Component {
                 }
                 <Button
                     title={'Enviar'}
-                    onPress={() => {Actions.resultadoFinal({idQuest: this.props.id})}}
+                    // onPress={() => {Actions.resultadoFinal({idQuest: this.props.id})}}
+                    onPress={() => {this.registrarResultado(this.props.id)}}
                 />
               </View>
                : <ActivityIndicator size="large" color="#0000ff" />

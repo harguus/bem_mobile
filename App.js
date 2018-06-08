@@ -21,7 +21,7 @@ export default class App extends Component {
                     <Scene key='transtornos' component={Transtornos} title="Transtornos"/>
                     <Scene key='formulario' component={Formulario} title="Formulário"/>
                     <Scene key='listaQuestionarios' component={ListaQuestionarios} title="Questionários"/>
-                    <Scene key='questionario' component={Questionario} title="Questionario"/>
+                    <Scene key='questionario' component={Questionario} title="Questionário"/>
                     <Scene hideNavBar={true} key='resultadoFinal' component={ResultadoFinal} title="Resultado"/>
                 </Modal>
             </Router>
