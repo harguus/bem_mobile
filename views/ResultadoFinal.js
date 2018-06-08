@@ -8,6 +8,7 @@ import {
     Alert,
     ActivityIndicator
 } from 'react-native';
+import Preloading from '../components/Preloading';
 import axios from 'axios';
 import { Actions } from 'react-native-router-flux';
 import Logo from '../src/imgs/qrcode.png';
@@ -76,28 +77,29 @@ export default class Teste extends Component{
                           {item.resposta.pontuacao}
                         </Text>
                         <Text style={{fontSize: 16}}>
+                          <Text style={{fontWeight: "bold"}}>
+                            {"Descrição: "}
+                          </Text>
                           {item.descricao}
                         </Text>
                       </View>
                     ))
                   }
                   </View>
+                  <View style={styles.viewVerMais}>
+                      <Button
+                          style={styles.botao}
+                          title={'Repetir teste'}
+                          onPress={() => {Actions.questionario({id: this.props.idQuest})}}
+                      />
+                      <Button
+                          title={'Questionários'}
+                          onPress={() => {Actions.listaQuestionarios()}}
+                      />
+                  </View>
               </View>
-              : <ActivityIndicator size="large" color="#0000ff" />
+              : <Preloading/>
             }
-            <View style={styles.cardBody}>
-                <View style={styles.viewVerMais}>
-                    <Button
-                        style={styles.botao}
-                        title={'Repetir teste'}
-                        onPress={() => {Actions.questionario({id: this.props.idQuest})}}
-                    />
-                    <Button
-                        title={'Questionários'}
-                        onPress={() => {Actions.listaQuestionarios()}}
-                    />
-                </View>
-            </View>
           </View>
         );
     }

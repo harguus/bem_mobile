@@ -7,6 +7,7 @@ import {
     ActivityIndicator,
     StyleSheet
 } from 'react-native';
+import Preloading from '../components/Preloading';
 import axios from 'axios';
 import { Actions } from 'react-native-router-flux';
 
@@ -39,8 +40,9 @@ export default class Teste extends Component{
 
     render(){
         return(
-          <ScrollView style={styles.vai}>
+          <View style={{flex: 1}}>
           {this.state.loaded ?
+            <ScrollView style={styles.vai}>
               <View style={styles.vwinterna}>
                 {
                   this.state.listQuestionarios.map(
@@ -62,10 +64,11 @@ export default class Teste extends Component{
                   ))
                 }
               </View>
-               : <ActivityIndicator size="large" color="#0000ff" />
+              </ScrollView>
+               : <Preloading/>
            }
+           </View>
 
-          </ScrollView>
         );
     }
 }

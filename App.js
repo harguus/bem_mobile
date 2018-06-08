@@ -15,7 +15,6 @@ export default class App extends Component {
         return (
             <Router>
                 <Modal>
-                <Scene hideNavBar={true} key='resultadoFinal' component={ResultadoFinal} title="Resultado"/>
                     <Scene hideNavBar={true} key='home' component={Home}/>
                     <Scene key='login' component={Login}/>
                     <Scene key='passoAPasso' component={PassoAPasso} title="Passoo-a-passo"/>
@@ -23,6 +22,7 @@ export default class App extends Component {
                     <Scene key='formulario' component={Formulario} title="Formulário"/>
                     <Scene key='listaQuestionarios' component={ListaQuestionarios} title="Questionários"/>
                     <Scene key='questionario' component={Questionario} title="Questionário"/>
+                    <Scene key='resultadoFinal' component={ResultadoFinal} title="Resultado"/>
                 </Modal>
             </Router>
         );

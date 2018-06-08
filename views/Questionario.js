@@ -8,6 +8,7 @@ import {
   StyleSheet,
   Alert
 } from 'react-native';
+import Preloading from '../components/Preloading';
 import axios from 'axios';
 import { Actions } from 'react-native-router-flux';
 import RadioForm, {RadioButton, RadioButtonInput, RadioButtonLabel} from 'react-native-simple-radio-button';
@@ -94,8 +95,9 @@ export default class Questionario extends Component {
 
   render(){
     return(
-      <ScrollView style={styles.geral}>
+      <View style={{flex: 1}}>
           {this.state.loaded ?
+            <ScrollView style={styles.geral}>
               <View style={styles.vwinterna}>
               <View tyle={styles.corpo}>
                   <View style={styles.question}>
@@ -131,9 +133,10 @@ export default class Questionario extends Component {
                     onPress={() => {this.registrarResultado(this.props.id)}}
                 />
               </View>
-               : <ActivityIndicator size="large" color="#0000ff" />
+              </ScrollView>
+               : <Preloading/>
            }
-      </ScrollView>
+           </View>
 
     );
   }
