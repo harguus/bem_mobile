@@ -6,6 +6,7 @@ import {
     StyleSheet,
     Image,
     Alert,
+    ScrollView,
     ActivityIndicator
 } from 'react-native';
 import Preloading from '../components/Preloading';
@@ -20,13 +21,15 @@ export default class Teste extends Component{
 
       this.state = {
         loaded: false,
-        resultado: []
+        resultado: [],
+        titulo: ""
       }
     }
 
     componentWillMount() {
         // requisição HTTP
-        axios.get('https://bemapi.herokuapp.com/resultado/' + 'jaKgDkAKzC')
+        console.log("codigo: " + this.props.code);
+        axios.get('https://bemapi.herokuapp.com/resultado/' + this.props.code)
             .then((response) => {
                 this.setState({resultado: response.data});
                 this.setState({loaded: true});
@@ -35,7 +38,7 @@ export default class Teste extends Component{
             .catch((error) => {
                 console.log(error);
                 Alert.alert(
-                    'Problema com a conexão: '
+                    'Problema com a conexão: ' + error.response.status
                 );
                 this.setState({loaded: true});
             });
@@ -44,60 +47,58 @@ export default class Teste extends Component{
     render(){
         return(
           <View style={{flex: 1}}>
-            <View style={{ marginLeft: 10, marginRight: 10, borderBottomColor: '#c3c3c3', borderBottomWidth: 1}}>
-              <Text style={styles.h1}>
-                Resultado
-              </Text>
-            </View>
             { this.state.loaded ?
-              <View>
-              <View style={{padding: 10, flexDirection: 'column', justifyContent: 'center', alignItems: 'center'}}>
-                  <Image
-                    style={{width: 150, height: 150}}
-                    source={{uri : 'https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=' + this.state.resultado.codigo}}
-                  />
-                  <Text style={{fontSize: 20, fontWeight: "bold"}}>
-                    {this.state.resultado.codigo}
-                  </Text>
+              <ScrollView style={styles.geral}>
+              <View style={{ marginLeft: 10, marginRight: 10, borderBottomColor: '#c3c3c3', borderBottomWidth: 1}}>
+                <Text style={styles.h1}>
+                  Resultado
+                </Text>
               </View>
-              <View style={styles.cardBody}>
-                  {
-                    this.state.resultado.faixas.map((item, key) => (
-                      <View key={key} style={{borderBottomWidth: key == this.state.resultado.faixas.length - 1 ? 0 : 1, borderBottomColor: "#c3c3c3", margin: 10, padding: 10}}>
-                        <Text style={{fontSize: 20}}>
-                          <Text style={{fontWeight: "bold"}}>
-                            {item.escala.descricao + ": "}
+              <View>
+                <View style={{padding: 10, flexDirection: 'column', justifyContent: 'center', alignItems: 'center'}}>
+                    <Image
+                      style={{width: 120, height: 120}}
+                      source={{uri : 'https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=' + this.state.resultado.codigo}}
+                    />
+                    <Text style={{fontSize: 20, fontWeight: "bold"}}>
+                      {this.state.resultado.codigo}
+                    </Text>
+                </View>
+                <View style={styles.cardBody}>
+                    <Text style={{marginTop: 10, textAlign: "center",fontSize: 16}}>
+                      <Text style={{fontWeight: "bold"}}>
+                        {"Pesquisa: "}
+                      </Text>
+                      {this.props.titulo}
+                    </Text>
+                    {
+                      this.state.resultado.faixas.map((item, key) => (
+                        <View key={key} style={{borderBottomWidth: key == this.state.resultado.faixas.length - 1 ? 0 : 1, borderBottomColor: "#c3c3c3", margin: 10, padding: 10}}>
+                          <Text style={{fontSize: 20}}>
+                            <Text style={{fontWeight: "bold"}}>
+                              {item.escala.descricao + ": "}
+                            </Text>
+                              {item.titulo}
                           </Text>
-                            {item.titulo}
-                        </Text>
-                        <Text style={{fontSize: 16}}>
-                          <Text style={{fontWeight: "bold"}}>
-                            {"Pontuação: "}
+                          <Text style={{fontSize: 16}}>
+                            <Text style={{fontWeight: "bold"}}>
+                              {"Pontuação: "}
+                            </Text>
+                            {item.resposta.pontuacao}
                           </Text>
-                          {item.resposta.pontuacao}
-                        </Text>
-                        <Text style={{fontSize: 16}}>
-                          <Text style={{fontWeight: "bold"}}>
-                            {"Descrição: "}
+                          <Text style={{fontSize: 16}}>
+                            <Text style={{fontWeight: "bold"}}>
+                              {"Descrição: "}
+                            </Text>
+                            {item.descricao}
                           </Text>
-                          {item.descricao}
-                        </Text>
-                      </View>
+                        </View>
                     ))
                   }
                   </View>
-                  <View style={styles.viewVerMais}>
-                      <Button
-                          style={styles.botao}
-                          title={'Repetir teste'}
-                          onPress={() => {Actions.questionario({id: this.props.idQuest})}}
-                      />
-                      <Button
-                          title={'Questionários'}
-                          onPress={() => {Actions.listaQuestionarios()}}
-                      />
+                    
                   </View>
-              </View>
+                  </ScrollView>
               : <Preloading/>
             }
           </View>
@@ -106,6 +107,9 @@ export default class Teste extends Component{
 }
 
 const styles = StyleSheet.create({
+    geral: {
+        flex: 1
+    },
     cardBody: {
         marginTop: 10,
         marginLeft: 10,

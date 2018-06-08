@@ -84,6 +84,7 @@ export default class Questionario extends Component {
     })
     .then((response) => {
       console.log("Res: " + JSON.stringify(response.data));
+      Actions.resultadoFinal({code: response.data.codigo, titulo: this.state.listPerguntas.titulo});
     })
     .catch((error) => {
         console.log(error);
@@ -127,11 +128,12 @@ export default class Questionario extends Component {
                       </View>
                   ))
                 }
-                <Button
+                <View style={{padding: 10}}>
+                  <Button
                     title={'Enviar'}
-                    // onPress={() => {Actions.resultadoFinal({idQuest: this.props.id})}}
                     onPress={() => {this.registrarResultado(this.props.id)}}
-                />
+                  />
+                </View>
               </View>
               </ScrollView>
                : <Preloading/>
