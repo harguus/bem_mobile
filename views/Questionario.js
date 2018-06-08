@@ -5,11 +5,14 @@ import {
   Button,
   ScrollView,
   ActivityIndicator,
-  StyleSheet
+  StyleSheet,
+  Alert
 } from 'react-native';
 import axios from 'axios';
 import { Actions } from 'react-native-router-flux';
 import RadioForm, {RadioButton, RadioButtonInput, RadioButtonLabel} from 'react-native-simple-radio-button';
+
+var respostas = [];
 
 export default class Questionario extends Component {
   constructor(props){
@@ -19,13 +22,18 @@ export default class Questionario extends Component {
       loaded: false,
       listPerguntas: [],
       resposta: 0,
-      radio_props: [
+      alternativas: [
         {label: '0', value: 0 },
         {label: '1', value: 1 },
         {label: '2', value: 2 },
         {label: '3', value: 3 },
       ],
     }
+  }
+
+  addResposta(i, v){
+    respostas[i] = v;
+    Alert.alert("Pergunta: " + i + " resposta: " + v );
   }
 
   componentWillMount() {
@@ -57,7 +65,6 @@ export default class Questionario extends Component {
                       </View>
                   </View>
               </View>
-
                 {
                   this.state.listPerguntas.perguntas.map((item, key) => (
                       <View key={key} style={styles.corpo}>
@@ -65,14 +72,14 @@ export default class Questionario extends Component {
                               <Text style={styles.labels}>{key+1} - {item.descricao}:</Text>
                               <RadioForm
                                 style={styles.radios}
-                                radio_props={this.state.radio_props}
+                                radio_props={this.state.alternativas}
                                 initial={0}
                                 formHorizontal={true}
                                 labelHorizontal={false}
                                 buttonColor={'#2196f3'}
                                 labelColor={'#000'}
                                 animation={true}
-                                onPress={(valor) => {this.setState({resposta: valor})}}
+                                onPress={(valor) => this.addResposta(key,valor)}
                               />
                           </View>
                       </View>
