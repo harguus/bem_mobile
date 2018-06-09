@@ -48,10 +48,11 @@ export default class Questionario extends Component {
           .then((response) => {
               this.setState({listPerguntas: response.data});
               this.setState({loaded: true});
+              respostas = {};
               this.state.listPerguntas.perguntas.map((item, key) => (
                 respostas[`${item.id}`] = 0
               ));
-              console.log("Res: " + JSON.stringify(respostas));
+              console.log("Res Object: " + JSON.stringify(respostas));
           })
           .catch((error) => {
               console.log(error);
@@ -70,8 +71,8 @@ export default class Questionario extends Component {
       res.push({'pergunta_id' : key, 'alternativa_id' : respostas[key]});
     });
 
-    console.log(res);
-
+    console.log("Respostas: " + JSON.stringify(res));
+    console.log("Questionario: " + idQuestionario);
     // axios.post('', res)
 
     axios({
@@ -84,6 +85,7 @@ export default class Questionario extends Component {
     })
     .then((response) => {
       console.log("Res: " + JSON.stringify(response.data));
+
       Actions.resultadoFinal({code: response.data.codigo, titulo: this.state.listPerguntas.titulo});
     })
     .catch((error) => {
