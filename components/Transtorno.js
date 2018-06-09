@@ -18,10 +18,12 @@ export default class Transtorno extends Component{
                 <Text style={styles.texts}>
                     A nível organizacional, o julgamento imparcial das eventualidades prepara-nos para enfrentar situações atípicas decorrentes do sistema de participação geral.
                 </Text>
-                <Button
+                <View style={{padding: 10}}>
+                  <Button
                     title={'Ver todos'}
                     onPress={() => {Actions.transtornos()}}
-                />
+                  />
+                </View>
             </View>
         );
     }
