@@ -15,14 +15,11 @@ export default class Teste extends Component{
                     Como funciona?
                 </Text>
                 <Text style={styles.texts}>
-                    A nível organizacional, o julgamento imparcial das eventualidades prepara-nos para enfrentar situações atípicas decorrentes do sistema de participação geral.
-                </Text>
-                <Text style={styles.texts}>
-                    Desta maneira, a crescente influência da mídia possibilita uma melhor visão global das direções preferenciais no sentido do progresso.
+                  Ná próxima tela, será listado os testes(questionários) a serem respondidos com questões de multipla escolha e ao final após clicar no botão enviar, será exibido o resultado do teste e as condições.
                 </Text>
                 <View style={styles.viewVerMais}>
                     <Button
-                        title={'Escolhe o teste'}
+                        title={'Questionários'}
                         onPress={() => {Actions.listaQuestionarios()}}
                     />
                 </View>

@@ -56,7 +56,7 @@ export default class Teste extends Component{
                           </Text>
                           <View style={styles.viewVerMais}>
                               <Button
-                                  title={'Começar'}
+                                  title={'Responder'}
                                   onPress={() => {Actions.questionario({id: item.id})}}
                               />
                           </View>
