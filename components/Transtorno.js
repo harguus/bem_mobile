@@ -24,7 +24,7 @@ export default class Transtorno extends Component{
                       style={styles.cruz}
                       onPress={() => {Actions.transtornos()}}
                     >
-                    <Text style={{fontSize: 30, color: '#fff'}}>+</Text>
+                    <Text style={{fontSize: 30, color: '#fff'}}>></Text>
                   </TouchableOpacity>
                 </View>
             </View>

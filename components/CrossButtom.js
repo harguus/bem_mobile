@@ -14,7 +14,7 @@ export default class CrossButtom extends Component {
           style={styles.cruz}
           onPress={this.props.open}
           >
-          <Text style={{fontSize: 30, color: '#fff'}}>+</Text>
+          <Text style={{fontSize: 30, color: '#fff'}}>></Text>
         </TouchableOpacity>
       </View>
     )

@@ -23,7 +23,7 @@ export default class SobreTeste extends Component{
                         style={styles.cruz}
                         onPress={() => {Actions.passoAPasso()}}
                       >
-                      <Text style={{fontSize: 30, color: '#fff'}}>+</Text>
+                      <Text style={{fontSize: 30, color: '#fff'}}>></Text>
                     </TouchableOpacity>
                 </View>
             </View>
