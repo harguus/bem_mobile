@@ -3,16 +3,15 @@ import {
     Text,
     View,
     Button,
-    StyleSheet
+    StyleSheet,
 } from 'react-native';
 import { Actions } from 'react-native-router-flux';
+import CrossButtom from '../components/CrossButtom';
 
 export default class Card extends Component{
 
     constructor(props){
         super(props);
-
-        this.sta
     }
     render(){
         return(
@@ -23,6 +22,7 @@ export default class Card extends Component{
                 <Text style={styles.texts}>
                     {this.props.texto}
                 </Text>
+                <CrossButtom open={this.props.open}/>
             </View>
         );
     }
@@ -36,7 +36,6 @@ const styles = StyleSheet.create({
         backgroundColor: '#fff',
         borderRadius: 5
     },
-
     h1: {
         fontSize: 20,
         fontWeight: 'bold',
@@ -45,16 +44,8 @@ const styles = StyleSheet.create({
         marginRight: 10,
         color: '#000',
     },
-
     texts: {
         color: '#000',
         margin: 10,
-    },
-
-    viewVerMais: {
-        alignItems: 'flex-end',
-        height: 50,
-        marginLeft: 10,
-        marginRight: 10,
     }
 })
