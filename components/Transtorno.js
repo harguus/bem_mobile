@@ -3,7 +3,8 @@ import {
     Text,
     View,
     Button,
-    StyleSheet
+    StyleSheet,
+    TouchableOpacity
 } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 
@@ -16,13 +17,15 @@ export default class Transtorno extends Component{
                     Transtornos:
                 </Text>
                 <Text style={styles.texts}>
-                    A nível organizacional, o julgamento imparcial das eventualidades prepara-nos para enfrentar situações atípicas decorrentes do sistema de participação geral.
+                  Aqui listamos alguns transtornos e suas definições para um melhor entendimento e esclarecimentos de tais condições psicológicas.
                 </Text>
-                <View style={{padding: 10}}>
-                  <Button
-                    title={'Ver todos'}
-                    onPress={() => {Actions.transtornos()}}
-                  />
+                <View style={styles.viewVerMais}>
+                  <TouchableOpacity
+                      style={styles.cruz}
+                      onPress={() => {Actions.transtornos()}}
+                    >
+                    <Text style={{fontSize: 30, color: '#fff'}}>></Text>
+                  </TouchableOpacity>
                 </View>
             </View>
         );
@@ -48,6 +51,15 @@ const styles = StyleSheet.create({
         color: '#000',
     },
 
+    cruz:{
+        backgroundColor: '#3C9DFF',
+        borderRadius: 100,
+        paddingLeft: 15,
+        paddingRight: 15,
+        paddingTop: 2,
+        paddingBottom: 4,
+    },
+
     texts: {
         color: '#000',
         margin: 10,
@@ -58,5 +70,6 @@ const styles = StyleSheet.create({
         height: 50,
         marginLeft: 10,
         marginRight: 10,
+        marginBottom: 6
     }
 })

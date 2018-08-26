@@ -19,7 +19,7 @@ export default class Home extends Component {
 
     render(){
         return(
-            <ScrollView>
+            <ScrollView style={{marginBottom: 5}}>
                 <Image
                     style={styles.logo}
                     source={Logo}

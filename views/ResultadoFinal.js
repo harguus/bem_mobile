@@ -29,7 +29,7 @@ export default class Teste extends Component{
     componentWillMount() {
         // requisição HTTP
         console.log("codigo: " + this.props.code);
-        axios.get('https://bemapi.herokuapp.com/resultado/' + this.props.code)
+        axios.get('https://bemapi.herokuapp.com/resultado/' + /*'WMbGojLvYB'*/ this.props.code)
             .then((response) => {
                 this.setState({resultado: response.data});
                 this.setState({loaded: true});
@@ -49,16 +49,12 @@ export default class Teste extends Component{
           <View style={{flex: 1}}>
             { this.state.loaded ?
               <ScrollView style={styles.geral}>
-              <View style={{ marginLeft: 10, marginRight: 10, borderBottomColor: '#c3c3c3', borderBottomWidth: 1}}>
-                <Text style={styles.h1}>
-                  Resultado
-                </Text>
-              </View>
+
               <View>
                 <View style={{padding: 10, flexDirection: 'column', justifyContent: 'center', alignItems: 'center'}}>
                     <Image
                       style={{width: 120, height: 120}}
-                      source={{uri : 'https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=' + this.state.resultado.codigo}}
+                      source={{ uri: `https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl=${this.state.resultado.codigo}` }}
                     />
                     <Text style={{fontSize: 20, fontWeight: "bold"}}>
                       {this.state.resultado.codigo}
@@ -73,7 +69,7 @@ export default class Teste extends Component{
                     </Text>
                     {
                       this.state.resultado.faixas.map((item, key) => (
-                        <View key={key} style={{borderBottomWidth: key == this.state.resultado.faixas.length - 1 ? 0 : 1, borderBottomColor: "#c3c3c3", margin: 10, padding: 10}}>
+                        <View key={key} style={{borderBottomWidth: key == this.state.resultado.faixas.length - 1 ? 0 : 1, borderBottomColor: "#c3c3c3", marginRight: 10, marginLeft: 10, marginBottom: 10, paddingLeft: 10, paddingRight:10, paddingBottom: 10}}>
                           <Text style={{fontSize: 20}}>
                             <Text style={{fontWeight: "bold"}}>
                               {item.escala.descricao + ": "}
@@ -96,7 +92,18 @@ export default class Teste extends Component{
                     ))
                   }
                   </View>
-                    
+                    <View style={styles.botoes}>
+                      <Button
+                        onPress={() => Actions.listaQuestionarios()}
+                        title="Questionários"
+                        accessibilityLabel="Voltar aos questionários"
+                      />
+                      <Button
+                        onPress={() => Actions.home()}
+                        title="Voltar ao início"
+                        accessibilityLabel="Voltar ao início"
+                      />
+                    </View>
                   </View>
                   </ScrollView>
               : <Preloading/>
@@ -117,12 +124,12 @@ const styles = StyleSheet.create({
         backgroundColor: '#fff',
         borderRadius: 5,
     },
-
-    botao: {
-        width: 500,
-        backgroundColor: 'green',
+    botoes: {
+      margin: 10,
+      justifyContent: 'space-between',
+      alignItems: 'center',
+      flexDirection: 'row',
     },
-
     h1: {
         fontSize: 20,
         fontWeight: 'bold',
@@ -132,24 +139,6 @@ const styles = StyleSheet.create({
         color: '#000',
         textAlign: 'center'
     },
-
-    resultNumber: {
-        color: '#000',
-        fontSize: 50,
-        textAlign: 'center',
-        margin: 10,
-    },
-
-    viewVerMais: {
-        height: 35,
-        marginLeft: 10,
-        marginRight: 10,
-        marginBottom: 20,
-        justifyContent: 'center',
-        justifyContent: 'space-between',
-        flexDirection: 'row',
-    },
-
     logo: {
         width: 300,
         height: 200,

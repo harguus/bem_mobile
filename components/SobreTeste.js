@@ -3,7 +3,8 @@ import {
     Text,
     View,
     Button,
-    StyleSheet
+    StyleSheet,
+    TouchableOpacity
 } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 
@@ -15,16 +16,15 @@ export default class SobreTeste extends Component{
                     Sobre o teste:
                 </Text>
                 <Text style={styles.texts}>
-                    A nível organizacional, o julgamento imparcial das eventualidades prepara-nos para enfrentar situações atípicas decorrentes do sistema de participação geral.
-                </Text>
-                <Text style={styles.texts}>
-                    Desta maneira, a crescente influência da mídia possibilita uma melhor visão global das direções preferenciais no sentido do progresso.
+                  Os testes realizados em nosso aplicativo são questionários de avaliação psicológica baseados em testes utilizados por profissionais.
                 </Text>
                 <View style={styles.viewVerMais}>
-                    <Button
-                        title={'Iniciar Teste'}
+                    <TouchableOpacity
+                        style={styles.cruz}
                         onPress={() => {Actions.passoAPasso()}}
-                    />
+                      >
+                      <Text style={{fontSize: 30, color: '#fff'}}>></Text>
+                    </TouchableOpacity>
                 </View>
             </View>
         );
@@ -39,7 +39,14 @@ const styles = StyleSheet.create({
         backgroundColor: '#fff',
         borderRadius: 5,
     },
-
+    cruz:{
+        backgroundColor: '#3C9DFF',
+        borderRadius: 100,
+        paddingLeft: 15,
+        paddingRight: 15,
+        paddingTop: 2,
+        paddingBottom: 4,
+    },
     h1: {
         fontSize: 20,
         fontWeight: 'bold',
@@ -59,5 +66,6 @@ const styles = StyleSheet.create({
         height: 50,
         marginLeft: 10,
         marginRight: 10,
+        marginBottom: 6
     }
 })
