@@ -54,7 +54,7 @@ export default class Teste extends Component{
                 <View style={{padding: 10, flexDirection: 'column', justifyContent: 'center', alignItems: 'center'}}>
                     <Image
                       style={{width: 120, height: 120}}
-                      source={{uri : 'https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=' + this.state.resultado.codigo}}
+                      source={{ uri: `https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl=${this.state.resultado.codigo}` }}
                     />
                     <Text style={{fontSize: 20, fontWeight: "bold"}}>
                       {this.state.resultado.codigo}
