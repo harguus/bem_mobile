@@ -51,7 +51,7 @@ const PassoAPasso = props => {
                     <Text></Text>
                     <View style={styles.viewVerMais}>
                         <Button
-                            title={'Questionários'}
+                            title={'Próximo'}
                             onPress={() => { Actions.listaQuestionarios() }}
                         />
                     </View>

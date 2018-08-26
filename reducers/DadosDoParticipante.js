@@ -1,8 +1,8 @@
 const INITIAL_STATE = {
-    curso: 'TADS',
-    idade: '31',
-    periodo: '5',
-    turno: 'Vespertino'
+    curso: '',
+    idade: '',
+    periodo: '',
+    turno: ''
 }
 
 export default (state = INITIAL_STATE, action) => {
