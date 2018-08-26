@@ -15,9 +15,12 @@ import Questionario from "./views/Questionario";
 export default props => (
     <Router>
         <Modal>
+            <Scene key='passoAPasso' component={PassoAPasso} title="Passoo-a-passo" />
+            
             <Scene hideNavBar={true} key='home' component={Home} />
             <Scene key='login' component={Login} />
-            <Scene key='passoAPasso' component={PassoAPasso} title="Passoo-a-passo" />
+            
+
             <Scene key='transtornos' component={Transtornos} title="Transtornos" />
             <Scene key='ansiedade' component={Ansiedade} title="Transtorno" />
             <Scene key='depressao' component={Depressao} title="Transtorno" />

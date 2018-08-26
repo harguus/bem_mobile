@@ -8,6 +8,7 @@ import {
 } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import {connect} from 'react-redux';
+import { modificarCurso, modificarIdade, modificarPeriodo, modificarTurno } from '../actions/DadosDoParticipanteActions';
 
 const PassoAPasso = props => {
 
@@ -22,26 +23,30 @@ const PassoAPasso = props => {
                     </Text>
                 </View>
                 <View style={styles.cardBody}>
-                    <Text style={styles.h1}>Dados do participante </Text>
+                    <Text style={styles.h1}>Dados do participante</Text>
                     <TextInput
                         style={styles.inputs}
                         placeholder="idade"
                         value={props.idade}
+                        onChangeText={ idade => props.modificarIdade(idade)}
                         />
                     <TextInput
                         style={styles.inputs}
                         placeholder="Curso"
                         value={props.curso}
+                        onChangeText={ curso => props.modificarCurso(curso)}
                         />
                     <TextInput
                         style={styles.inputs}
                         placeholder="turno"
                         value={props.turno}
+                        onChangeText={ turno => props.modificarTurno(turno)}
                         />
                     <TextInput
                         style={styles.inputs}
                         placeholder="periodo"
                         value={props.periodo}
+                        onChangeText={ periodo => props.modificarPeriodo(periodo)}
                         />
                     <Text></Text>
                     <View style={styles.viewVerMais}>
@@ -98,4 +103,4 @@ const mapStateToProps = state => (
 
 )
 
-export default connect(mapStateToProps, null)(PassoAPasso);
+export default connect(mapStateToProps, { modificarCurso, modificarIdade, modificarPeriodo, modificarTurno})(PassoAPasso);
