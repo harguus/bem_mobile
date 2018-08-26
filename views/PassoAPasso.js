@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 import {
     Text,
     View,
@@ -7,20 +7,10 @@ import {
     StyleSheet
 } from 'react-native';
 import { Actions } from 'react-native-router-flux';
+import {connect} from 'react-redux';
 
-export default class Teste extends Component{
-    
-    constructor(props){
-        super(props);
-        this.state = {
-            curso: "",
-            idade: "",
-            periodo: "",
-            turno: ""
-        }
-    }
+const PassoAPasso = props => {
 
-    render(){
         return(
             <View>
                 <View style={styles.cardBody}>
@@ -32,26 +22,26 @@ export default class Teste extends Component{
                     </Text>
                 </View>
                 <View style={styles.cardBody}>
-                    <Text style={styles.h1}>Dados do participante {this.state.curso}</Text>
+                    <Text style={styles.h1}>Dados do participante </Text>
                     <TextInput
                         style={styles.inputs}
                         placeholder="idade"
-                        onChangeText={(idade) => this.setState(idade)}
+                        value={props.idade}
                         />
                     <TextInput
                         style={styles.inputs}
                         placeholder="Curso"
-                        onChangeText={(tx) => this.setState({ curso: tx })}
+                        value={props.curso}
                         />
                     <TextInput
                         style={styles.inputs}
                         placeholder="turno"
-                        onChangeText={(turno) => this.setState(turno)}
+                        value={props.turno}
                         />
                     <TextInput
                         style={styles.inputs}
                         placeholder="periodo"
-                        onChangeText={(periodo) => this.setState(periodo)}
+                        value={props.periodo}
                         />
                     <Text></Text>
                     <View style={styles.viewVerMais}>
@@ -62,9 +52,9 @@ export default class Teste extends Component{
                     </View>
                 </View>
             </View>
-        );
-    }
+        )
 }
+
 
 const styles = StyleSheet.create({
     cardBody: {
@@ -97,3 +87,15 @@ const styles = StyleSheet.create({
         marginRight: 10,
     }
 })
+
+const mapStateToProps = state => (
+    {
+        curso: state.DadosDoParticipante.curso,
+        idade: state.DadosDoParticipante.idade,
+        periodo: state.DadosDoParticipante.periodo,
+        turno: state.DadosDoParticipante.turno
+    }
+
+)
+
+export default connect(mapStateToProps, null)(PassoAPasso);
