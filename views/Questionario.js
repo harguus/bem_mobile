@@ -123,8 +123,8 @@ export default class Questionario extends Component {
                                   })
                                 }
                                 initial={0}
-                                formHorizontal={true}
-                                labelHorizontal={false}
+                                formHorizontal={false}
+                                labelHorizontal={true}
                                 buttonColor={'#2196f3'}
                                 labelColor={'#000'}
                                 animation={true}
@@ -171,7 +171,7 @@ const styles = StyleSheet.create({
     radios:{
       marginTop: 10,
       marginRight: 10,
-      justifyContent: 'space-between'
+      justifyContent: 'space-between',
     },
     descricao:{
       borderTopWidth: 1,
