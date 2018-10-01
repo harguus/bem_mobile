@@ -44,7 +44,7 @@ export default class Questionario extends Component {
 
   componentWillMount() {
       // requisição HTTP
-      axios.get('https://bemapi.herokuapp.com/questionario/47' /*+ this.props.id*/)
+      axios.get(`https://bem-api.devops.ifrn.edu.br/questionario/${this.props.id}`)
           .then((response) => {
               this.setState({listPerguntas: response.data});
               this.setState({loaded: true});
@@ -77,7 +77,7 @@ export default class Questionario extends Component {
 
     axios({
       method: 'post',
-      url: 'https://bemapi.herokuapp.com/resultado',
+      url: 'https://bem-api.devops.ifrn.edu.br/resultado',
       data: {
         respostas: res,
         questionario_id: idQuestionario,
@@ -113,20 +113,14 @@ export default class Questionario extends Component {
                 {
                   this.state.listPerguntas.perguntas.map((item, key) => (
                       <View key={key} style={styles.corpo}>
-                      {
-                        console.log(item.alternativas)
-                      }
                           <View>
                               <Text style={styles.labels}>{key+1} - {item.descricao}:</Text>
                               <RadioForm
                                 style={styles.radios}
                                 radio_props={
-                                  [
-                                    { label: `${item.alternativas[0].descricao}`, value: `${item.alternativas[0].valor}` },
-                                    { label: `${item.alternativas[1].descricao}`, value: `${item.alternativas[1].valor}` },
-                                    { label: `${item.alternativas[2].descricao}`, value: `${item.alternativas[2].valor}` },
-                                    { label: `${item.alternativas[3].descricao}`, value: `${item.alternativas[3].valor}` },
-                                  ]
+                                  item.alternativas.map((alt) => {
+                                    return { label: `${alt.descricao}`, value: `${alt.valor}` };
+                                  })
                                 }
                                 initial={0}
                                 formHorizontal={true}
