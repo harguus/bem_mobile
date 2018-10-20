@@ -24,7 +24,7 @@ export default class Teste extends Component{
 
   componentWillMount() {
       // requisição HTTP
-      axios.get('https://bemapi.herokuapp.com/questionario')
+      axios.get('https://bem-api.devops.ifrn.edu.br/questionario')
           .then((response) => {
               this.setState({listQuestionarios: response.data});
               this.setState({loaded: true});

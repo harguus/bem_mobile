@@ -44,7 +44,7 @@ export default class Questionario extends Component {
 
   componentWillMount() {
       // requisição HTTP
-      axios.get('https://bemapi.herokuapp.com/questionario/' + this.props.id)
+      axios.get(`https://bem-api.devops.ifrn.edu.br/questionario/${this.props.id}`)
           .then((response) => {
               this.setState({listPerguntas: response.data});
               this.setState({loaded: true});
@@ -77,7 +77,7 @@ export default class Questionario extends Component {
 
     axios({
       method: 'post',
-      url: 'https://bemapi.herokuapp.com/resultado',
+      url: 'https://bem-api.devops.ifrn.edu.br/resultado',
       data: {
         respostas: res,
         questionario_id: idQuestionario,
@@ -117,10 +117,14 @@ export default class Questionario extends Component {
                               <Text style={styles.labels}>{key+1} - {item.descricao}:</Text>
                               <RadioForm
                                 style={styles.radios}
-                                radio_props={this.state.alternativas}
+                                radio_props={
+                                  item.alternativas.map((alt) => {
+                                    return { label: `${alt.descricao}`, value: `${alt.valor}` };
+                                  })
+                                }
                                 initial={0}
-                                formHorizontal={true}
-                                labelHorizontal={false}
+                                formHorizontal={false}
+                                labelHorizontal={true}
                                 buttonColor={'#2196f3'}
                                 labelColor={'#000'}
                                 animation={true}
@@ -167,7 +171,7 @@ const styles = StyleSheet.create({
     radios:{
       marginTop: 10,
       marginRight: 10,
-      justifyContent: 'space-between'
+      justifyContent: 'space-between',
     },
     descricao:{
       borderTopWidth: 1,
