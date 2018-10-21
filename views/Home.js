@@ -9,6 +9,7 @@ import {
 } from 'react-native';
 
 import Drawer from 'react-native-drawer';
+import {Actions} from 'react-native-router-flux';
 
 import Card from '../components/Card';
 import Sobre from '../components/Sobre';
@@ -66,8 +67,34 @@ export default class Home extends Component {
                     </View>
                     <ScrollView style={{ marginBottom: 5 }}>
                         <Sobre />
-                        <SobreTeste />
-                        <Transtorno />
+                        <View style={{alignContent: 'center',}}>
+                            <TouchableOpacity
+                                style={{
+                                    backgroundColor: '#337ab7',
+                                    padding: 10,
+                                    margin: 10,
+                                    borderRadius: 5,
+                                }}
+                                onPress={() => { Actions.passoAPasso() }}
+                            >
+                                <Text style={{color: '#fff', fontSize: 18, fontWeight: 'bold', textAlign: 'center'}}>Responder Questionário</Text>
+                            </TouchableOpacity>
+                        </View>
+                        <Card
+                            titulo="Depressão"
+                            texto="Depressão é um estado depressivo de humor, caracterizado por aversão à atividade,que pode afetar os pensamentos, comportamentos, sentimentos e o bem-estar de uma pessoa.As pessoas deprimidas podem sentir-se tristes, ansiosas, vazias, desesperadas..."
+                            open={() => { Actions.depressao() }}
+                        />
+                        <Card
+                            titulo="Ansiedade"
+                            texto="Ansiedade, ânsia ou nervosismo é uma característica biológica do ser humano e animais, que antecede momentos de perigo real ou imaginário,marcada por sensações corporais desagradáveis, tais como uma sensação de vazio no estômago, coração batendo.."
+                            open={() => { Actions.ansiedade() }}
+                        />
+                        <Card
+                            titulo="Estresse"
+                            texto="O termo estresse, agaste ou consumição, foi usado por Selye (1976) com um sentido neutro - nem positivo nem negativo. Ele o definiu comoreação não específica do corpo a qualquer tipo de exigência ou falta de esportes físicos. A partir dessa definição..."
+                            open={() => { Actions.estresse() }}
+                        />
                     </ScrollView>
                 </View>
                 
@@ -94,10 +121,6 @@ const drawerStyles = {
         shadowRadius: 3,
         padding: 10,
         backgroundColor: '#fff',
-        borderLeftColor: '#c3c3c3',
-        borderLeftWidth: 1,
-        borderRightColor: '#c3c3c3',
-        borderRightWidth: 1
     },
     main: { paddingLeft: 0 },
 }
