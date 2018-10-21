@@ -5,6 +5,13 @@ export const modificarCurso = (curso) => {
     }
 }
 
+export const modificarSexo = (sexo) => {
+    return{
+        type: 'modifica_sexo',
+        payload: sexo
+    }
+}
+
 export const modificarIdade = (idade) => {
     return{
         type: 'modifica_idade',

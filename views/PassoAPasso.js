@@ -8,7 +8,7 @@ import {
 } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import {connect} from 'react-redux';
-import { modificarCurso, modificarIdade, modificarPeriodo, modificarTurno } from '../actions/DadosDoParticipanteActions';
+import { modificarCurso, modificarSexo, modificarIdade, modificarPeriodo, modificarTurno } from '../actions/DadosDoParticipanteActions';
 
 const PassoAPasso = props => {
 
@@ -19,7 +19,7 @@ const PassoAPasso = props => {
                         Como funciona?
                     </Text>
                     <Text style={styles.texts}>
-                    Ná próxima tela, será listado os testes(questionários) a serem respondidos com questões de multipla escolha e ao final após clicar no botão enviar, será exibido o resultado do teste e as condições.
+                        Na próxima tela, será listado os testes a serem respondidos com questões de multipla escolha e ao final após clicar no botão Responder, será exibido o resultado do teste.
                     </Text>
                 </View>
                 <View style={styles.cardBody}>
@@ -29,6 +29,12 @@ const PassoAPasso = props => {
                         placeholder="idade"
                         value={props.idade}
                         onChangeText={ idade => props.modificarIdade(idade)}
+                        />
+                    <TextInput
+                        style={styles.inputs}
+                        placeholder="Sexo"
+                        value={props.sexo}
+                        onChangeText={ sexo => props.modificarSexo(sexo)}
                         />
                     <TextInput
                         style={styles.inputs}
@@ -96,6 +102,7 @@ const styles = StyleSheet.create({
 const mapStateToProps = state => (
     {
         curso: state.DadosDoParticipante.curso,
+        sexo: state.DadosDoParticipante.sexo,
         idade: state.DadosDoParticipante.idade,
         periodo: state.DadosDoParticipante.periodo,
         turno: state.DadosDoParticipante.turno
@@ -103,4 +110,4 @@ const mapStateToProps = state => (
 
 )
 
-export default connect(mapStateToProps, { modificarCurso, modificarIdade, modificarPeriodo, modificarTurno})(PassoAPasso);
+export default connect(mapStateToProps, { modificarCurso, modificarSexo, modificarIdade, modificarPeriodo, modificarTurno})(PassoAPasso);

@@ -1,5 +1,6 @@
 const INITIAL_STATE = {
     curso: '',
+    sexo: '',
     idade: '',
     periodo: '',
     turno: ''
@@ -8,6 +9,9 @@ const INITIAL_STATE = {
 export default (state = INITIAL_STATE, action) => {
     if (action.type == 'modifica_curso'){
         return { ...state, curso: action.payload}
+    }
+    if (action.type == 'modifica_sexo'){
+        return { ...state, sexo: action.payload}
     }
     if (action.type == 'modifica_idade'){
         return { ...state, idade: action.payload}
