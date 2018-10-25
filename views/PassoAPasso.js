@@ -27,6 +27,7 @@ const PassoAPasso = props => {
                     <TextInput
                         style={styles.inputs}
                         placeholder="idade"
+                        keyboardType="numeric"
                         value={props.idade}
                         onChangeText={ idade => props.modificarIdade(idade)}
                         />
@@ -36,7 +37,7 @@ const PassoAPasso = props => {
                         value={props.sexo}
                         onChangeText={ sexo => props.modificarSexo(sexo)}
                         />
-                    <TextInput
+                    {/*<TextInput
                         style={styles.inputs}
                         placeholder="Curso"
                         value={props.curso}
@@ -53,8 +54,7 @@ const PassoAPasso = props => {
                         placeholder="periodo"
                         value={props.periodo}
                         onChangeText={ periodo => props.modificarPeriodo(periodo)}
-                        />
-                    <Text></Text>
+                    />*/}
                     <View style={styles.viewVerMais}>
                         <Button
                             title={'Próximo'}
