@@ -114,7 +114,7 @@ export default class Questionario extends Component {
                   this.state.listPerguntas.perguntas.map((item, key) => (
                       <View key={key} style={styles.corpo}>
                           <View>
-                              <Text style={styles.labels}>{key+1} - {item.descricao}:</Text>
+                              <Text style={styles.labels}>{key+1} - {item.descricao}</Text>
                               <RadioForm
                                 style={styles.radios}
                                 radio_props={
