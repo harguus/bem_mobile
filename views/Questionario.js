@@ -44,7 +44,7 @@ export default class Questionario extends Component {
 
   componentWillMount() {
       // requisição HTTP
-      axios.get(`https://bem-api.devops.ifrn.edu.br/questionario/${this.props.id}`)
+      axios.get(`https://bem-api.devops.ifrn.edu.br/questionario/28` /*${this.props.id}`*/)
           .then((response) => {
               this.setState({listPerguntas: response.data});
               this.setState({loaded: true});
@@ -137,7 +137,7 @@ export default class Questionario extends Component {
                 <View style={{padding: 10}}>
                   <Button
                     title={'Enviar'}
-                    onPress={() => {this.registrarResultado(this.props.id)}}
+                    onPress={() => {this.registrarResultado(28)}}
                   />
                 </View>
               </View>
@@ -171,7 +171,9 @@ const styles = StyleSheet.create({
     radios:{
       marginTop: 10,
       marginRight: 10,
-      justifyContent: 'space-between',
+      paddingLeft: 10,
+      paddingBottom: 10,
+      alignItems: 'flex-start',
     },
     descricao:{
       borderTopWidth: 1,
