@@ -11,5 +11,6 @@ it('renders correctly', () => {
     const ques = renderer.create(<Questionarios />);
     const PreloadingRendered = ques.root.findByType(Preloading)
     const ActivityIndicatorRendered = PreloadingRendered.findByType(ActivityIndicator);
+    // teste se o componente foi inicializado
     expect(ActivityIndicatorRendered).toBeTruthy();
 });
