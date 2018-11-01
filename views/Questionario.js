@@ -44,13 +44,13 @@ export default class Questionario extends Component {
 
   componentWillMount() {
       // requisição HTTP
-      axios.get(`https://bem-api.devops.ifrn.edu.br/questionario/28` /*${this.props.id}`*/)
+      axios.get(`https://bem-api.devops.ifrn.edu.br/questionario/${this.props.id}`)
           .then((response) => {
               this.setState({listPerguntas: response.data});
               this.setState({loaded: true});
               respostas = {};
               this.state.listPerguntas.perguntas.map((item, key) => (
-                respostas[`${item.id}`] = 0
+                respostas[`${item.id}`] = item.alternativas[0].id
               ));
               console.log("Res Object: " + JSON.stringify(respostas));
           })
@@ -114,12 +114,12 @@ export default class Questionario extends Component {
                   this.state.listPerguntas.perguntas.map((item, key) => (
                       <View key={key} style={styles.corpo}>
                           <View>
-                              <Text style={styles.labels}>{key+1} - {item.descricao}</Text>
+                      <Text style={styles.labels}>{key + 1} - {item.descricao}</Text>
                               <RadioForm
                                 style={styles.radios}
                                 radio_props={
                                   item.alternativas.map((alt) => {
-                                    return { label: `${alt.descricao}`, value: `${alt.valor}` };
+                                    return { label: `${alt.descricao}`, value: `${alt.id}` };
                                   })
                                 }
                                 initial={0}
@@ -128,7 +128,7 @@ export default class Questionario extends Component {
                                 buttonColor={'#2196f3'}
                                 labelColor={'#000'}
                                 animation={true}
-                                onPress={(valor) => this.addResposta(item.id,valor)}
+                                onPress={(valor) => this.addResposta(item.id, valor)}
                               />
                           </View>
                       </View>
@@ -137,7 +137,7 @@ export default class Questionario extends Component {
                 <View style={{padding: 10}}>
                   <Button
                     title={'Enviar'}
-                    onPress={() => {this.registrarResultado(28)}}
+                    onPress={() => {this.registrarResultado(this.props.id)}}
                   />
                 </View>
               </View>
