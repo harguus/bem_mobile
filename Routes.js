@@ -18,7 +18,7 @@ export default props => (
         <Modal>            
             <Scene hideNavBar={true} key='home' component={Home} />
             <Scene key='login' component={Login} />
-            <Scene key='passoAPasso' component={PassoAPasso} title="Passoo-a-passo" />
+            <Scene key='passoAPasso' component={PassoAPasso} title="Passo-a-passo" />
             <Scene key='transtornos' component={Transtornos} title="Transtornos" />
             <Scene key='ansiedade' component={Ansiedade} title="Transtorno" />
             <Scene key='depressao' component={Depressao} title="Transtorno" />
