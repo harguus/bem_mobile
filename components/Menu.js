@@ -19,7 +19,7 @@ export default props => (
         </TouchableOpacity>
         <TouchableOpacity
         style={styles.menu}
-            onPress={() => true}
+            onPress={() => {Actions.sobre()}}
         >
             <Text style={styles.menuTite}>Sobre nós</Text>            
         </TouchableOpacity>
