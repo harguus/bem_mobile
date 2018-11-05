@@ -84,10 +84,12 @@ const styles = StyleSheet.create({
         color: '#000',
     },
     texts: {
+        fontSize: 18,
         color: '#000',
         margin: 10,
     },
     inputs: {
+        fontSize:18,
         marginLeft: 10,
         marginRight: 10,
     },

@@ -106,7 +106,7 @@ export default class Questionario extends Component {
                   <View style={styles.question}>
                       <Text style={styles.titulo}>{this.state.listPerguntas.titulo}</Text>
                       <View style={styles.descricao}>
-                        <Text>{this.state.listPerguntas.descricao}</Text>
+                        <Text style={styles.descricaoText}>{this.state.listPerguntas.descricao}</Text>
                       </View>
                   </View>
               </View>
@@ -182,6 +182,7 @@ const styles = StyleSheet.create({
       paddingTop: 5
     },
     descricaoText:{
+      fontSize:20,
       fontSize: 15,
       color: 'black'
     },
@@ -189,7 +190,7 @@ const styles = StyleSheet.create({
         marginTop: 5,
         marginLeft: 10,
         marginRight: 10,
-        fontSize: 16,
+        fontSize: 18,
         color: "#000"
     }
 

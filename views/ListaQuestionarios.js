@@ -92,6 +92,7 @@ const styles = StyleSheet.create({
     },
 
     texts: {
+        fontSize:18,
         color: '#000',
         margin: 10,
     },

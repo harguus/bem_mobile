@@ -17,49 +17,31 @@ export default props => (
               Estresse:
           </Text>
           <View style={styles.block}>
-              <Text style={styles.texts}>
-              O estresse é o desgaste físico e mental causado pela soma de respostas físicas e mentais causadas por determinados estímulos externos (estressores) e que permitem ao indivíduo (humano ou animal) superar determinadas exigências do meio em que vive.
-              O estresse pode ser causado pela ansiedade e pela depressão devido à mudança brusca no estilo de vida e a exposição a um determinado ambiente, que leva a pessoa a sentir um determinado tipo de angústia. Quando os sintomas de estresse persistem por um longo intervalo de tempo, podem ocorrer sentimentos de evasão (ligados à ansiedade e depressão).
-              Os nossos mecanismos de defesa passam a não responder de uma forma eficaz, aumentando assim a possibilidade de vir a ocorrer doenças, especialmente cardiovasculares.
-              </Text>
-              <Text style={styles.h2}>Causas internas: </Text>
-              <Text style={styles.texts}>
-              Ligados a características de personalidade, como perfeccionismo, pressa, querer fazer tudo ao mesmo tempo.
-              </Text>
-
-              <Text style={styles.h2}>Causas externas: </Text>
-              <Text style={styles.texts}>
-              Do ambiente. Mudanças em geral, até mesmo as positivas, desencadeiam estresse porque exigem adaptação: nascimento de filho, mudanças profissionais (troca de emprego, promoção, demissão), aposentadoria, mudança de casa, divórcio, doença ou morte de pessoas queridas. Mas há também os pequenos, como o trânsito, que pode acabar tendo um peso importante para muitas pessoas. "Quão estressante é um fator depende do fator em si, do significado que tem para a pessoa e da forma que ela lida com ele", comenta a dra. Selma Bordin, psicóloga do Hospital Israelita Albert Einstein.
-              </Text>
-              <Text style={styles.h2}>Sintomas: </Text>
-              <Text style={styles.texts}>
-              Sensação de desgaste constante;
-              Alteração de sono (dormir demais ou pouco);
-              Tensão muscular Formigamento (na face ou nas mãos, por exemplo);
-              Problemas de pele;
-              Hipertensão;
-              Mudança de apetite;
-              Alterações de humor;
-              Perda de interesse pelas coisas;
-              Problemas de atenção, concentração e memória;
-              Ansiedade;
-              Depressão;
-              </Text>
-              <Text style={styles.h2}>Veja o potencial estressante de algumas situacoes: </Text>
-              <Text style={styles.texts}>
-              Morte do cônjuge - 100
-              Divórcio - 73;
-              Promrisão - 63;
-              Morte de um parente querido - 63;
-              Casamento - 50;
-              Demissão do trabalho - 47;
-              Aposentadoria - 45;
-              Reconciliação conjugal - 45;
-              Gravidez - 40;
-              Grandes conquistas pessoais - 28;
-              Problemas com o chefe - 23;
-              Férias - 13;
-              </Text>
+            <Text style={styles.h2}>O que é?</Text>
+            <Text style={styles.texts}>
+                O estresse é um sintoma que muda nosso estado de forma indescritível. Ele pode ser caracterizado por sensações de irritação, medo, desconforto, preocupação, frustração, indignação, nervoso, e ser motivado por diversas razões distintas. Além disso, muitas vezes, a causa para o estresse é desconhecida.
+                Quando o estresse interfere na sua vida, tornando difícil passar dias tranquilos por um longo período, ele pode ser mais perigoso tanto para mente quanto para o corpo. Isso acontece porque o estresse também leva a incômodos físicos.
+                O estresse é um sentimento normal. Ele pode, inclusive, ajudar uma pessoa em seu dia a dia, melhorando seu desempenho no trabalho, por exemplo. No entanto, quando o estresse é muito grande, você pode senti-lo em seu corpo por meio de algumas reações específicas.
+            </Text>
+              
+            <Text style={styles.h2}>Sintomas:</Text>
+            <Text style={styles.texts}>
+                º Um ritmo cardíaco acelerado;{"\n"}
+                º Batimento fora do ritmo;{"\n"}
+                º Respiração acelerada;{"\n"}
+                º Sudorese;{"\n"}
+                º Tremores;{"\n"}
+                º Fezes soltas;{"\n"}
+                º Necessidade frequente de urinar;{"\n"}
+                º Boca seca;{"\n"}
+                º Problemas para engolir;{"\n"}
+                º Dificuldade para dormir;{"\n"}
+                º Queda de cabelo em excesso;{"\n"}
+                º Cansaço demasiado;{"\n"}
+                º Alergias de pele;{"\n"}
+                º Gastrite e úlceras;{"\n"}
+                º Tensão muscular;{"\n"}
+            </Text>
           </View>
       </View>
     </ScrollView>
@@ -88,10 +70,11 @@ const styles = StyleSheet.create({
     h2:{
       color: '#000',
       fontWeight: 'bold',
-      fontSize: 15,
+      fontSize: 20,
       marginBottom: 10
     },
     texts: {
+        fontSize: 18,
         color: '#000',
         textAlign: 'auto',
         marginBottom: 10,
