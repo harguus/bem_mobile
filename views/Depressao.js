@@ -17,65 +17,28 @@ export default props => (
               Depressão:
           </Text>
           <View style={styles.block}>
-              <Text style={styles.texts}>
-                Depressão é um estado depressivo de humor, caracterizado por aversão à atividade, que pode afetar os pensamentos, comportamentos, sentimentos e o bem-estar de uma pessoa.
-                As pessoas deprimidas podem sentir-se tristes, ansiosas, vazias, desesperadas, preocupadas, impotentes, inúteis, culpadas, irritadas, magoadas ou inquietas. Podem perder o interesse em atividades que antes eram prazerosas, podem perder o apetite ou comer demais, apresentar problemas de concentração, dificuldade para lembrar detalhes ou tomar decisões. Problemas de insônia, sono excessivo, fadiga, perda de energia, mudança na alimentação, sofrimento, dores ou problemas digestivos resistentes a tratamento também podem estar presentes.
-                O humor deprimido não é necessariamente um transtorno psiquiátrico.
-                Pode ser uma reação passageira a determinados acontecimentos ou consequência de uma dada condição médica ou, ainda, efeito colateral de medicamentos ou tratamentos médicos. O humor deprimido é também a característica principal ou associada a certas síndromes psiquiátricas tais como depressão clínica.
-              </Text>
-
-              <Text style={styles.h2}>Causas: </Text>
-              <Text style={styles.texts}>
-              Mudanças e eventos de vida que podem precipitar o humor deprimido incluem o parto, menopausa,sedentarismo, dificuldades financeiras, problemas de trabalho, a perda de um amigo ou ente querido, casamento, desastres naturais, tais como terremotos, furacões, tornados etc, problemas de relacionamento,problemas de família ou até mesmo falta de atenção familiar, separação, luto ou lesão causada por catástrofe.
-              Doenças não psiquiatricas.
-              O humor deprimido pode ser o resultado de uma série de doenças infecciosas, condições neurológicas e problemas fisiológicos, incluindo hipoandrogenismo (nos homens), doença de Addison, doença de Lyme, esclerose múltipla, dor crónica, acidente vascular cerebral, diabetes, apnéia do sono e ritmo circadiano perturbado. Muitas vezes, é um dos primeiros sintomas de hipotireoidismo (diminuição da atividade da glândula tireóide).
-              </Text>
-
-              <Text style={styles.h2}>Sintomas: </Text>
+            <Text style={styles.h2}>O que é? </Text>
+             <Text style={styles.texts}>
+                Estar triste é diferente de estar com depressão, já que a tristeza é um sentimento normal de qualquer pessoa, sendo um estado desconfortável gerado por situações como um desapontamento, lembranças desagradáveis ou o término de um relacionamento, por exemplo, que é passageiro e não precisa de tratamento.
+                Já a depressão é uma doença que afeta o humor, gerando tristeza profunda, persistente e desproporcional, que ultrapassa 2 semanas, e que não tem um motivo justificável para acontecer. Além disso, a depressão pode vir acompanhada de sintomas físicos adicionais, como diminuição da atenção, perda de peso e dificuldade em dormir, por exemplo.
+                Estas diferenças podem ser sutis, e até, difíceis de perceber, portanto caso a tristeza persista por mais de 14 dias, é importante passar por uma avaliação médica, que poderá definir se há depressão e orientar um tratamento, que inclui o uso de antidepressivos e a realização de sessões de psicoterapia.
+            </Text>
+            <Text style={styles.h2}>Sintomas: </Text>
 
               <Text style={styles.texts}>
-              Requer um diagnóstico médico.
-
-              A sensação persistente de tristeza ou perda de interesse que caracteriza a depressão pode levar a uma variedade de sintomas físicos e comportamentais. Estes podem incluir alterações no sono, apetite, nível de energia, concentração, comportamento diário ou autoestima.
-
-              As pessoas, em geral, podem ter:
-
-              No humor:Ansiedade, apatia, culpa, descontentamento geral, desesperança, mudanças de humor, perda de interesse, perda de interesse ou prazer nas atividades, solidão, tristeza, tédio ou sofrimento emocional;
-              No comportamento:Agitação, automutilação, choro excessivo, inquietação, irritabilidade ou isolamento social;
-              No sono: Despertar precoce, excesso de sonolência, insônia ou sono agitado;
-              Na cognição: Falta de concentração, lentidão durante atividades ou pensamentos suicidas;
-              No corpo: Fadiga ou fome excessiva;
-              No peso: Ganho de peso ou perda de peso.
-
-              Ja especificando em faixa etaria, pode-se observar:
-              </Text>
-
-              <Text style={styles.h2}>Em crianças: </Text>
-
-              <Text style={styles.texts}>
-              Irritabilidade;
-              Redução no interesse em brincadeiras;
-              Queda no rendimento escolar;
-              Sensação de cansaço;
-              Ansiedade;
-              Dores somatizadas.
-              </Text>
-
-              <Text style={styles.h2}>Em adolescentes: </Text>
-              <Text style={styles.texts}>
-              Agressividade;
-              Alteração do apetite;
-              Pensamento suicida;
-              Isolamento social.
-              </Text>
-
-              <Text style={styles.h2}>Em adultos: </Text>
-              <Text style={styles.texts}>
-              Isolamento social;
-              Tristeza;
-              Alteração no humor;
-              Alteração no sono;
-              Perda de líbido.
+                ° Humor deprimido que seja anormal para aquela pessoa, mantido por pelo menos 2 semanas, presente durante a maior parte do dia, quase todos os dias, e que não é influenciado pelas circunstâncias;{"\n"}
+                ° Perda de interesse ou prazer por atividades que normalmente são agradáveis;{"\n"}
+                ° Sensação de fadiga e energia diminuída.{"\n"}
+                ° Perda da confiança ou auto-estima;{"\n"}
+                ° Sentimentos de culpa excessiva ou auto-reprovação;{"\n"}
+                ° Problemas de sono, principalmente insônia, em que a pessoa acorda no meio da noite e não volta a adormecer, ou sonolência excessiva;{"\n"}
+                ° Diminuição da concentração ou capacidade de pensar, havendo indecisão;{"\n"}
+                ° Excesso de agitação ou lentificação na realização das atividades;{"\n"}
+                ° Alteração do apetite, com diminuição ou aumento, com correspondente alteração do peso;{"\n"}
+                ° Perda do desejo sexual;{"\n"}
+                ° Depressão pior pela manhã;{"\n"}
+                ° Perda de peso (5% ou mais do peso corporal no último mês);{"\n"}
+                ° Irritabilidade e ansiedade excessivas.{"\n"}
               </Text>
           </View>
       </View>
@@ -105,10 +68,11 @@ const styles = StyleSheet.create({
     h2:{
       color: '#000',
       fontWeight: 'bold',
-      fontSize: 15,
+      fontSize: 20,
       marginBottom: 10
     },
     texts: {
+        fontSize: 18,
         color: '#000',
         textAlign: 'auto',
         marginBottom: 10,

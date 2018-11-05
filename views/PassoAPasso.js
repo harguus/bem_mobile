@@ -8,7 +8,7 @@ import {
 } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import {connect} from 'react-redux';
-import { modificarCurso, modificarIdade, modificarPeriodo, modificarTurno } from '../actions/DadosDoParticipanteActions';
+import { modificarCurso, modificarSexo, modificarIdade, modificarPeriodo, modificarTurno } from '../actions/DadosDoParticipanteActions';
 
 const PassoAPasso = props => {
 
@@ -19,7 +19,7 @@ const PassoAPasso = props => {
                         Como funciona?
                     </Text>
                     <Text style={styles.texts}>
-                    Ná próxima tela, será listado os testes(questionários) a serem respondidos com questões de multipla escolha e ao final após clicar no botão enviar, será exibido o resultado do teste e as condições.
+                        Na próxima tela, será listado os testes a serem respondidos com questões de multipla escolha e ao final após clicar no botão Responder, será exibido o resultado do teste.
                     </Text>
                 </View>
                 <View style={styles.cardBody}>
@@ -27,10 +27,17 @@ const PassoAPasso = props => {
                     <TextInput
                         style={styles.inputs}
                         placeholder="idade"
+                        keyboardType="numeric"
                         value={props.idade}
                         onChangeText={ idade => props.modificarIdade(idade)}
                         />
                     <TextInput
+                        style={styles.inputs}
+                        placeholder="Sexo"
+                        value={props.sexo}
+                        onChangeText={ sexo => props.modificarSexo(sexo)}
+                        />
+                    {/*<TextInput
                         style={styles.inputs}
                         placeholder="Curso"
                         value={props.curso}
@@ -47,8 +54,7 @@ const PassoAPasso = props => {
                         placeholder="periodo"
                         value={props.periodo}
                         onChangeText={ periodo => props.modificarPeriodo(periodo)}
-                        />
-                    <Text></Text>
+                    />*/}
                     <View style={styles.viewVerMais}>
                         <Button
                             title={'Próximo'}
@@ -78,10 +84,12 @@ const styles = StyleSheet.create({
         color: '#000',
     },
     texts: {
+        fontSize: 18,
         color: '#000',
         margin: 10,
     },
     inputs: {
+        fontSize:18,
         marginLeft: 10,
         marginRight: 10,
     },
@@ -96,6 +104,7 @@ const styles = StyleSheet.create({
 const mapStateToProps = state => (
     {
         curso: state.DadosDoParticipante.curso,
+        sexo: state.DadosDoParticipante.sexo,
         idade: state.DadosDoParticipante.idade,
         periodo: state.DadosDoParticipante.periodo,
         turno: state.DadosDoParticipante.turno
@@ -103,4 +112,4 @@ const mapStateToProps = state => (
 
 )
 
-export default connect(mapStateToProps, { modificarCurso, modificarIdade, modificarPeriodo, modificarTurno})(PassoAPasso);
+export default connect(mapStateToProps, { modificarCurso, modificarSexo, modificarIdade, modificarPeriodo, modificarTurno})(PassoAPasso);

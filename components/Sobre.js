@@ -10,13 +10,10 @@ export default class Sobre extends Component{
         return(
             <View style={styles.cardBody}>
                 <Text style={styles.h1}>
-                    Sobre nós:
+                    BEM
                 </Text>
                 <Text style={styles.texts}>
-                    A nível organizacional, o julgamento imparcial das eventualidades prepara-nos para enfrentar situações atípicas decorrentes do sistema de participação geral.
-                </Text>
-                <Text style={styles.texts}>
-                    Desta maneira, a crescente influência da mídia possibilita uma melhor visão global das direções preferenciais no sentido do progresso.
+                    Buscar auxiliar pessoas que possam está se sentido em alguma condição mental suspeita e proporcionar um Feedback de como a pessoa pode esta se sentindo através de um questionário e mostrar os resultados de psicólogos disponível caso queira conversar ou medidas alternativas.
                 </Text>
             </View>
         );
@@ -42,6 +39,7 @@ const styles = StyleSheet.create({
     },
 
     texts: {
+        fontSize: 17,
         color: '#000',
         margin: 10,
     },

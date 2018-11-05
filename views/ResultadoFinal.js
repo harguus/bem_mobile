@@ -29,7 +29,7 @@ export default class Teste extends Component{
     componentWillMount() {
         // requisição HTTP
         console.log("codigo: " + this.props.code);
-        axios.get('https://bemapi.herokuapp.com/resultado/' + /*'WMbGojLvYB'*/ this.props.code)
+      axios.get('https://bem-api.devops.ifrn.edu.br/resultado/' + /*'WMbGojLvYB'*/ this.props.code)
             .then((response) => {
                 this.setState({resultado: response.data});
                 this.setState({loaded: true});
@@ -65,32 +65,18 @@ export default class Teste extends Component{
                       <Text style={{fontWeight: "bold"}}>
                         {"Pesquisa: "}
                       </Text>
-                      {this.props.titulo}
+                      {this.state.resultado.faixa.titulo}
                     </Text>
-                    {
-                      this.state.resultado.faixas.map((item, key) => (
-                        <View key={key} style={{borderBottomWidth: key == this.state.resultado.faixas.length - 1 ? 0 : 1, borderBottomColor: "#c3c3c3", marginRight: 10, marginLeft: 10, marginBottom: 10, paddingLeft: 10, paddingRight:10, paddingBottom: 10}}>
+                        <View style={{borderBottomColor: "#c3c3c3", marginRight: 10, marginLeft: 10, marginBottom: 10, paddingLeft: 10, paddingRight:10, paddingBottom: 10}}>
                           <Text style={{fontSize: 20}}>
-                            <Text style={{fontWeight: "bold"}}>
-                              {item.escala.descricao + ": "}
-                            </Text>
-                              {item.titulo}
-                          </Text>
-                          <Text style={{fontSize: 16}}>
-                            <Text style={{fontWeight: "bold"}}>
-                              {"Pontuação: "}
-                            </Text>
-                            {item.resposta.pontuacao}
                           </Text>
                           <Text style={{fontSize: 16}}>
                             <Text style={{fontWeight: "bold"}}>
                               {"Descrição: "}
                             </Text>
-                            {item.descricao}
+                            {this.state.resultado.faixa.descricao}
                           </Text>
                         </View>
-                    ))
-                  }
                   </View>
                     <View style={styles.botoes}>
                       <Button

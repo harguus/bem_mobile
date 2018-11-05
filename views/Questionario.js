@@ -50,7 +50,7 @@ export default class Questionario extends Component {
               this.setState({loaded: true});
               respostas = {};
               this.state.listPerguntas.perguntas.map((item, key) => (
-                respostas[`${item.id}`] = 0
+                respostas[`${item.id}`] = item.alternativas[0].id
               ));
               console.log("Res Object: " + JSON.stringify(respostas));
           })
@@ -106,7 +106,7 @@ export default class Questionario extends Component {
                   <View style={styles.question}>
                       <Text style={styles.titulo}>{this.state.listPerguntas.titulo}</Text>
                       <View style={styles.descricao}>
-                        <Text>{this.state.listPerguntas.descricao}</Text>
+                        <Text style={styles.descricaoText}>{this.state.listPerguntas.descricao}</Text>
                       </View>
                   </View>
               </View>
@@ -114,12 +114,12 @@ export default class Questionario extends Component {
                   this.state.listPerguntas.perguntas.map((item, key) => (
                       <View key={key} style={styles.corpo}>
                           <View>
-                              <Text style={styles.labels}>{key+1} - {item.descricao}:</Text>
+                      <Text style={styles.labels}>{key + 1} - {item.descricao}</Text>
                               <RadioForm
                                 style={styles.radios}
                                 radio_props={
                                   item.alternativas.map((alt) => {
-                                    return { label: `${alt.descricao}`, value: `${alt.valor}` };
+                                    return { label: `${alt.descricao}`, value: `${alt.id}` };
                                   })
                                 }
                                 initial={0}
@@ -128,7 +128,7 @@ export default class Questionario extends Component {
                                 buttonColor={'#2196f3'}
                                 labelColor={'#000'}
                                 animation={true}
-                                onPress={(valor) => this.addResposta(item.id,valor)}
+                                onPress={(valor) => this.addResposta(item.id, valor)}
                               />
                           </View>
                       </View>
@@ -171,7 +171,9 @@ const styles = StyleSheet.create({
     radios:{
       marginTop: 10,
       marginRight: 10,
-      justifyContent: 'space-between',
+      paddingLeft: 10,
+      paddingBottom: 10,
+      alignItems: 'flex-start',
     },
     descricao:{
       borderTopWidth: 1,
@@ -180,6 +182,7 @@ const styles = StyleSheet.create({
       paddingTop: 5
     },
     descricaoText:{
+      fontSize:20,
       fontSize: 15,
       color: 'black'
     },
@@ -187,7 +190,7 @@ const styles = StyleSheet.create({
         marginTop: 5,
         marginLeft: 10,
         marginRight: 10,
-        fontSize: 16,
+        fontSize: 18,
         color: "#000"
     }
 
